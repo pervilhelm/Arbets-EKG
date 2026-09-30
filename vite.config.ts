@@ -1,0 +1,52 @@
+/// <reference types="vitest/config" />
+import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import { VitePWA } from "vite-plugin-pwa";
+
+// Placeholder until phase 0 decides the app name.
+const APP_NAME = "EKG-träning arbetsprov";
+const APP_SHORT_NAME = "EKG-träning";
+
+// GitHub Pages serves the app from /<repo>/; set BASE_PATH in CI when the repo exists.
+const base = process.env.BASE_PATH ?? "/";
+
+export default defineConfig({
+  base,
+  plugins: [
+    react(),
+    tailwindcss(),
+    VitePWA({
+      registerType: "autoUpdate",
+      injectRegister: "auto",
+      includeAssets: ["favicon.svg", "apple-touch-icon.png"],
+      manifest: {
+        name: APP_NAME,
+        short_name: APP_SHORT_NAME,
+        description: "Utbildningsverktyg för EKG-, blodtrycks- och symtomfynd vid arbetsprov på cykel.",
+        lang: "sv",
+        start_url: base,
+        scope: base,
+        display: "standalone",
+        orientation: "any",
+        background_color: "#f8fafc",
+        theme_color: "#0f172a",
+        icons: [
+          { src: "icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+          { src: "icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+          { src: "icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+        ],
+      },
+      workbox: {
+        // Precache every built file: code, content (bundled JSON) and ECG strips.
+        globPatterns: ["**/*.{js,css,html,json,svg,png,ico,webmanifest}"],
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+        navigateFallback: "index.html",
+        cleanupOutdatedCaches: true,
+      },
+    }),
+  ],
+  test: {
+    include: ["src/**/*.test.ts", "scripts/**/*.test.ts"],
+  },
+});
