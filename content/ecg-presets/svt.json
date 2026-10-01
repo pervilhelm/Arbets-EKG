@@ -2,7 +2,25 @@
   "id": "svt",
   "findingId": "svt",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 110,
+    "seed": 8,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 5
+      },
+      {
+        "kind": "pac",
+        "count": 1
+      },
+      {
+        "kind": "svt",
+        "rate": 180,
+        "sec": 15
+      }
+    ]
+  },
   "review": {
     "status": "utkast"
   }

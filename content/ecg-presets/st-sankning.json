@@ -2,7 +2,24 @@
   "id": "st-sankning",
   "findingId": "st-sankning",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 125,
+    "seed": 5,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 10
+      }
+    ],
+    "st": {
+      "mm": -2.5,
+      "slope": "horisontell"
+    },
+    "noise": {
+      "muscle": 0.1,
+      "baseline": 0.1
+    }
+  },
   "review": {
     "status": "utkast"
   }

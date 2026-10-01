@@ -2,7 +2,21 @@
   "id": "vt-ihallande",
   "findingId": "vt-ihallande",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 110,
+    "seed": 2,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 4
+      },
+      {
+        "kind": "vt",
+        "rate": 180,
+        "sec": 20
+      }
+    ]
+  },
   "review": {
     "status": "utkast"
   }

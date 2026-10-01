@@ -2,7 +2,21 @@
   "id": "ves-trioler",
   "findingId": "ves-trioler",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 100,
+    "seed": 7,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 6
+      },
+      {
+        "kind": "pvc",
+        "morphology": "a",
+        "count": 3
+      }
+    ]
+  },
   "review": {
     "status": "utkast"
   }

@@ -16,6 +16,15 @@ export const router = createBrowserRouter(
         { path: "repetera", element: <ReviewPage /> },
         { path: "checklistor", element: <ChecklistsPage /> },
         { path: "om", element: <AboutPage /> },
+        ...(import.meta.env.DEV
+          ? [
+              {
+                path: "dev/ecg",
+                HydrateFallback: () => null,
+                lazy: async () => ({ Component: (await import("./ecg/DevEcgPage")).DevEcgPage }),
+              },
+            ]
+          : []),
       ],
     },
   ],

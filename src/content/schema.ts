@@ -5,8 +5,37 @@ export const Category = z.enum(["arytmi", "overledning", "ischemi", "blodtryck",
 const Id = z.string().regex(/^[a-z0-9-]+$/);
 const IsoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 
-// Placeholder until phase 3 defines the rhythm model.
-export const RhythmSpec = z.unknown();
+const Count = z.number().int().min(1);
+const Rate = z.number().positive(); // beats per minute
+const Sec = z.number().positive();
+
+export const RhythmSegment = z.discriminatedUnion("kind", [
+  z.object({ kind: z.literal("sinus"), beats: Count }),
+  z.object({ kind: z.literal("pvc"), morphology: z.enum(["a", "b"]), count: Count }), // 1 single, 3 triplet
+  z.object({ kind: z.literal("pac"), count: Count }),
+  z.object({ kind: z.literal("vt"), rate: Rate, sec: Sec }),
+  z.object({ kind: z.literal("svt"), rate: Rate, sec: Sec }),
+  z.object({ kind: z.literal("af"), meanRate: Rate, sec: Sec }),
+  z.object({
+    kind: z.literal("avblock"),
+    type: z.enum(["1", "mobitz1", "mobitz2", "3"]),
+    sec: Sec,
+    ventricularRate: Rate.optional(),
+  }),
+  z.object({ kind: z.literal("brady"), rate: Rate, sec: Sec }),
+  z.object({ kind: z.literal("artifact"), type: z.enum(["muskel", "baslinje", "elektrod"]), sec: Sec }),
+]);
+
+const Level = z.number().min(0).max(1);
+
+export const RhythmSpec = z.object({
+  baseHr: Rate, // can be overridden by the simulator
+  seed: z.number().int(), // same seed gives the same signal
+  pattern: z.array(RhythmSegment).min(1), // runs in order and loops
+  st: z.object({ mm: z.number(), slope: z.enum(["horisontell", "nedat", "uppat"]) }).optional(),
+  qrsMs: z.number().min(60).max(200).optional(), // wide QRS, e.g. bundle branch block
+  noise: z.object({ muscle: Level, baseline: Level }).optional(),
+});
 
 export const Review = z.object({
   status: z.enum(["utkast", "granskad"]),
@@ -107,6 +136,8 @@ export const Source = z.object({
 });
 
 export type Action = z.infer<typeof Action>;
+export type RhythmSegment = z.infer<typeof RhythmSegment>;
+export type RhythmSpec = z.infer<typeof RhythmSpec>;
 export type Category = z.infer<typeof Category>;
 export type Review = z.infer<typeof Review>;
 export type SourceRef = z.infer<typeof SourceRef>;

@@ -2,7 +2,20 @@
   "id": "st-hojning",
   "findingId": "st-hojning",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 110,
+    "seed": 4,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 10
+      }
+    ],
+    "st": {
+      "mm": 2,
+      "slope": "horisontell"
+    }
+  },
   "review": {
     "status": "utkast"
   }

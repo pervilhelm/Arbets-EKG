@@ -2,7 +2,17 @@
   "id": "skankelblock-nytt",
   "findingId": "skankelblock-nytt",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 105,
+    "seed": 10,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 10
+      }
+    ],
+    "qrsMs": 140
+  },
   "review": {
     "status": "utkast"
   }

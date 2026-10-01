@@ -2,7 +2,21 @@
   "id": "ves-enstaka",
   "findingId": "ves-enstaka",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 100,
+    "seed": 11,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 6
+      },
+      {
+        "kind": "pvc",
+        "morphology": "a",
+        "count": 1
+      }
+    ]
+  },
   "review": {
     "status": "utkast"
   }

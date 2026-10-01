@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { formatError, validateContent, type ContentInput } from "./validate";
 
 const draft = { status: "utkast" };
+const rhythm = { baseHr: 70, seed: 1, pattern: [{ kind: "sinus", beats: 4 }] };
 
 function finding(id: string, overrides: Record<string, unknown> = {}) {
   return {
@@ -36,7 +37,7 @@ function baseInput(): ContentInput {
     ecgPresets: [
       {
         file: "content/ecg-presets/b.json",
-        data: { id: "b", findingId: "b", lead: "II", rhythm: {}, review: draft },
+        data: { id: "b", findingId: "b", lead: "II", rhythm, review: draft },
       },
     ],
     strips: [],
@@ -85,7 +86,7 @@ describe("validateContent", () => {
 
   it("checks references from presets, scenarios and checklists", () => {
     const input = baseInput();
-    input.ecgPresets[0].data = { id: "b", findingId: "saknas", lead: "II", rhythm: {}, review: draft };
+    input.ecgPresets[0].data = { id: "b", findingId: "saknas", lead: "II", rhythm, review: draft };
     input.scenarios = [
       {
         file: "content/scenarios/s.json",

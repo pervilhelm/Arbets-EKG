@@ -2,7 +2,30 @@
   "id": "ves-multifokala",
   "findingId": "ves-multifokala",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 100,
+    "seed": 6,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 3
+      },
+      {
+        "kind": "pvc",
+        "morphology": "a",
+        "count": 1
+      },
+      {
+        "kind": "sinus",
+        "beats": 4
+      },
+      {
+        "kind": "pvc",
+        "morphology": "b",
+        "count": 1
+      }
+    ]
+  },
   "review": {
     "status": "utkast"
   }

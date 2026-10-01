@@ -2,7 +2,21 @@
   "id": "bradyarytmi",
   "findingId": "bradyarytmi",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 90,
+    "seed": 9,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 3
+      },
+      {
+        "kind": "brady",
+        "rate": 38,
+        "sec": 12
+      }
+    ]
+  },
   "review": {
     "status": "utkast"
   }

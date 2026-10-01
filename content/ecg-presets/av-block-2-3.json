@@ -2,7 +2,23 @@
   "id": "av-block-2-3",
   "findingId": "av-block-2-3",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 90,
+    "seed": 3,
+    "pattern": [
+      {
+        "kind": "avblock",
+        "type": "mobitz2",
+        "sec": 10
+      },
+      {
+        "kind": "avblock",
+        "type": "3",
+        "sec": 10,
+        "ventricularRate": 40
+      }
+    ]
+  },
   "review": {
     "status": "utkast"
   }

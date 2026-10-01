@@ -2,7 +2,20 @@
   "id": "sves-enstaka",
   "findingId": "sves-enstaka",
   "lead": "II",
-  "rhythm": {},
+  "rhythm": {
+    "baseHr": 100,
+    "seed": 12,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 5
+      },
+      {
+        "kind": "pac",
+        "count": 1
+      }
+    ]
+  },
   "review": {
     "status": "utkast"
   }

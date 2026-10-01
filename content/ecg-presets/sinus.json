@@ -1,10 +1,9 @@
 {
-  "id": "sinustakykardi",
-  "findingId": "sinustakykardi",
+  "id": "sinus",
   "lead": "II",
   "rhythm": {
-    "baseHr": 135,
-    "seed": 13,
+    "baseHr": 75,
+    "seed": 1,
     "pattern": [
       {
         "kind": "sinus",
@@ -12,7 +11,7 @@
       }
     ],
     "noise": {
-      "muscle": 0.15,
+      "muscle": 0.1,
       "baseline": 0.1
     }
   },
