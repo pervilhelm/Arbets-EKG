@@ -1,0 +1,29 @@
+{
+  "id": "sinustakykardi",
+  "name": "Sinustakykardi, normalt svar på belastning",
+  "aliases": ["sinustakykardi", "hög puls", "takykardi"],
+  "category": "arytmi",
+  "action": "fortsatt",
+  "summary": "Hjärtfrekvensen stiger gradvis med belastningen och varje QRS föregås av en normal P-våg. Förväntat svar.",
+  "recognize": ["Normal P-våg före varje smalt QRS", "Frekvensen ökar gradvis i takt med belastningen"],
+  "confuseWith": [
+    {
+      "findingId": "svt",
+      "difference": "SVT börjar plötsligt och P-vågorna syns ofta inte."
+    }
+  ],
+  "todo": "Fortsätt testet och observera EKG, BT och symtom enligt protokollet.",
+  "ecg": {
+    "presetId": "sinustakykardi",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "HR Response"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

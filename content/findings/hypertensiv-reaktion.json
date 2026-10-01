@@ -1,0 +1,25 @@
+{
+  "id": "hypertensiv-reaktion",
+  "name": "Kraftig hypertensiv reaktion: systoliskt >250 eller diastoliskt >115 mmHg",
+  "aliases": ["hypertoni", "högt blodtryck", "hypertensiv reaktion"],
+  "category": "blodtryck",
+  "action": "overvag",
+  "summary": "Kraftig blodtrycksstegring under belastning: systoliskt över 250 eller diastoliskt över 115 mmHg.",
+  "recognize": ["Systoliskt BT över 250 mmHg", "Diastoliskt BT över 115 mmHg"],
+  "confuseWith": [
+    {
+      "findingId": "tekniskt-fel",
+      "difference": "Kontrollera att manschetten sitter rätt; ett felaktigt mätvärde kan ge falskt högt BT."
+    }
+  ],
+  "todo": "Mät om BT. Informera ansvarig läkare enligt klinikens rutin och fråga efter symtom.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

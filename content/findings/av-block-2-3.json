@@ -1,0 +1,49 @@
+{
+  "id": "av-block-2-3",
+  "name": "AV-block II eller III",
+  "aliases": [
+    "AV-block 2",
+    "AV-block 3",
+    "totalt AV-block",
+    "Mobitz",
+    "Wenckebach",
+    "tredje gradens AV-block"
+  ],
+  "category": "overledning",
+  "action": "avbryt",
+  "summary": "Störd överledning mellan förmak och kammare. Vissa P-vågor (grad II) eller inga P-vågor (grad III) följs av QRS.",
+  "recognize": [
+    "P-vågor som inte följs av QRS",
+    "Mobitz I: PR-tiden förlängs slag för slag tills ett QRS faller bort",
+    "Mobitz II: konstant PR-tid och plötsligt bortfall av QRS",
+    "Grad III: P-vågor och QRS går helt oberoende av varandra"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "bradyarytmi",
+      "difference": "Vid sinusbradykardi följs varje P-våg av ett QRS."
+    },
+    {
+      "findingId": "sves-enstaka",
+      "difference": "En SVES som inte leds över kan likna bortfall, men P-vågen kommer då för tidigt."
+    }
+  ],
+  "todo": "Avbryt belastningen. Larma ansvarig läkare enligt klinikens rutin. Fortsätt EKG-övervakning, mät BT och fråga efter yrsel.",
+  "ecg": {
+    "presetId": "av-block-2-3",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Absolute"
+    },
+    {
+      "sourceId": "aha-2013",
+      "locator": "Disorders of Impulse Conduction"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

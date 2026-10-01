@@ -1,0 +1,28 @@
+{
+  "id": "patient-vill-avbryta",
+  "name": "Patienten ber att få avbryta",
+  "aliases": ["vill sluta", "orkar inte", "patienten vill avbryta"],
+  "category": "ovrigt",
+  "action": "avbryt",
+  "summary": "Patienten vill avsluta testet. Önskemålet gäller oavsett orsak.",
+  "recognize": [
+    "Patienten säger att den vill sluta eller inte orkar mer",
+    "Slutar trampa eller signalerar att avbryta"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "trotthet-dyspne",
+      "difference": "Trötthet är ett relativt kriterium, men när patienten ber att få avbryta avbryts testet."
+    }
+  ],
+  "todo": "Avbryt belastningen. Fråga efter orsak och symtom, fortsätt övervaka EKG och BT i återhämtningen och dokumentera orsaken.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Absolute"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

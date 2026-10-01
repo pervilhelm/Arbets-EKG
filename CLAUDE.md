@@ -35,7 +35,7 @@ Ikonerna genereras med `npx tsx scripts/generate-icons.ts`.
 - `content/` allt kliniskt innehåll som JSON: `findings/`, `ecg-presets/`, `scenarios/`, `checklists/`, `protocol.json`, `sources.json`.
 - `public/strips/` riktiga EKG-remsor (JSON) med licens. `public/icons/` PWA-ikoner.
 - `scripts/` innehållsvalidering, granskningsexport, ikongenerering och `ecg/` (Python-pipeline för remsor, körs lokalt).
-- `src/content/` Zod-scheman och laddning. `src/ecg/` generator och renderer. `src/simulator/` motor (ren TS) och UI. `src/review/` repetition och schemaläggning. `src/features/` lookup, checklists, stats, about. `src/db/` Dexie-schema. `src/ui/` delade komponenter (app-skal, bottennavigering).
+- `src/content/` Zod-scheman (`schema.ts`), laddning (`index.ts`) och valideringsreglerna (`validate.ts`, som `scripts/validate-content.ts` anropar). `src/ecg/` generator och renderer. `src/simulator/` motor (ren TS) och UI. `src/review/` repetition och schemaläggning. `src/features/` lookup, checklists, stats, about. `src/db/` Dexie-schema. `src/ui/` delade komponenter (app-skal, bottennavigering).
 - `tests/e2e/` Playwright. `docs/OPEN_QUESTIONS.md` öppna frågor.
 
 ## Att känna till

@@ -1,0 +1,37 @@
+{
+  "id": "svt",
+  "name": "Supraventrikulär takykardi",
+  "aliases": ["SVT", "PSVT", "paroxysmal takykardi"],
+  "category": "arytmi",
+  "action": "overvag",
+  "summary": "Snabb, regelbunden rytm från förmaken eller AV-knutan med smala QRS. Börjar och slutar ofta plötsligt.",
+  "recognize": [
+    "Plötslig ökning till hög, regelbunden frekvens",
+    "Smala QRS-komplex",
+    "P-vågor syns inte eller ligger i T-vågen"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "sinustakykardi",
+      "difference": "Sinustakykardi ökar gradvis med belastningen och har synliga P-vågor."
+    },
+    {
+      "findingId": "vt-ihallande",
+      "difference": "VT har breda QRS-komplex."
+    }
+  ],
+  "todo": "Informera ansvarig läkare enligt klinikens rutin. Mät BT, fråga efter symtom och följ EKG.",
+  "ecg": {
+    "presetId": "svt",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

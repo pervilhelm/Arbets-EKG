@@ -1,0 +1,33 @@
+{
+  "id": "trotthet-dyspne",
+  "name": "Trötthet, andfåddhet, pipande andning, benkramp eller claudicatio",
+  "aliases": ["trötthet", "andfåddhet", "dyspné", "pipande andning", "benkramp", "claudicatio"],
+  "category": "symtom",
+  "action": "overvag",
+  "summary": "Trötthet, andfåddhet, pipande andning, benkramp eller claudicatio som begränsar patienten.",
+  "recognize": [
+    "Patienten säger sig vara mycket trött eller andfådd",
+    "Hörbart pipande andning",
+    "Kramp eller smärta i benen"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "patient-vill-avbryta",
+      "difference": "När patienten ber att få avbryta gäller avbrott."
+    },
+    {
+      "findingId": "cns-symtom",
+      "difference": "Yrsel, ostadighet eller nära synkope är ett absolut kriterium."
+    }
+  ],
+  "todo": "Fråga hur patienten mår och informera ansvarig läkare enligt klinikens rutin. Avbryt om patienten ber om det.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

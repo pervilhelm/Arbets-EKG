@@ -1,0 +1,33 @@
+{
+  "id": "dalig-perfusion",
+  "name": "Tecken på dålig perfusion: cyanos, blekhet",
+  "aliases": ["cyanos", "blekhet", "blek", "blå läppar"],
+  "category": "symtom",
+  "action": "avbryt",
+  "summary": "Huden blir blek eller blåaktig under belastningen, ett tecken på att cirkulationen inte räcker till.",
+  "recognize": [
+    "Blek eller gråblek hud",
+    "Blåaktig färg på läppar eller naglar (cyanos)",
+    "Förändring jämfört med vid start"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "cns-symtom",
+      "difference": "CNS-symtom märks i hur patienten mår och rör sig, inte på hudfärgen."
+    },
+    {
+      "findingId": "bt-fall-med-ischemi",
+      "difference": "BT-fall syns vid mätning, dålig perfusion på huden. Båda kan finnas samtidigt."
+    }
+  ],
+  "todo": "Avbryt belastningen. Larma ansvarig läkare enligt klinikens rutin. Mät BT, kontrollera EKG och fråga efter symtom.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Absolute"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

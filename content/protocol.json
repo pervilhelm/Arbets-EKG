@@ -1,0 +1,10 @@
+{
+  "startW": 25,
+  "stepW": 25,
+  "stepSec": 120,
+  "bpEverySec": 120,
+  "recoveryMinSec": 360,
+  "review": {
+    "status": "utkast"
+  }
+}

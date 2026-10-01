@@ -1,0 +1,33 @@
+{
+  "id": "tekniskt-fel",
+  "name": "Tekniska svårigheter att övervaka EKG eller systoliskt BT",
+  "aliases": ["tekniskt fel", "artefakt", "störning", "elektrod lossnat", "BT går inte att mäta"],
+  "category": "ovrigt",
+  "action": "avbryt",
+  "summary": "EKG eller systoliskt BT går inte att övervaka tillförlitligt. Då kan farliga fynd missas.",
+  "recognize": [
+    "Brusig eller platt EKG-kurva i en eller flera avledningar",
+    "Elektrod eller kabel som lossnat",
+    "BT-mätningen ger inget eller ett orimligt värde"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "vt-ihallande",
+      "difference": "Rörelseartefakter kan likna breda komplex, men normala QRS syns ofta genom störningen."
+    },
+    {
+      "findingId": "bt-fall-med-ischemi",
+      "difference": "Ett verkligt BT-fall bekräftas vid ommätning."
+    }
+  ],
+  "todo": "Avbryt belastningen. Kontrollera elektroder, kablar och BT-manschett och bedöm patienten. Kontakta ansvarig läkare enligt klinikens rutin.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Absolute"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "aha-2013",
+    "title": "Fletcher GF et al. Exercise Standards for Testing and Training: A Scientific Statement From the American Heart Association. Circulation 2013;128:873-934",
+    "url": "https://www.ahajournals.org/doi/10.1161/CIR.0b013e31829b5b44"
+  },
+  {
+    "id": "mitdb",
+    "title": "MIT-BIH Arrhythmia Database, PhysioNet",
+    "url": "https://physionet.org/content/mitdb/1.0.0/",
+    "license": "Open Data Commons Attribution License v1.0"
+  },
+  {
+    "id": "ptb-xl",
+    "title": "PTB-XL v1.0.3, PhysioNet",
+    "url": "https://physionet.org/content/ptb-xl/1.0.3/",
+    "license": "Creative Commons Attribution 4.0"
+  }
+]

@@ -25,7 +25,7 @@ Kopieras till `CLAUDE.md` i fas 1.
 
 - [ ] Fas 0: manuella förutsättningar (Oscar)
 - [x] Fas 1: projektsetup och PWA
-- [ ] Fas 2: innehållslager och validering
+- [x] Fas 2: innehållslager och validering
 - [ ] Fas 3: EKG-motor
 - [ ] Fas 4: riktiga EKG-remsor
 - [ ] Fas 5: snabbuppslag

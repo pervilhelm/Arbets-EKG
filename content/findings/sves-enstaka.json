@@ -1,0 +1,37 @@
+{
+  "id": "sves-enstaka",
+  "name": "Enstaka SVES",
+  "aliases": ["SVES", "supraventrikulärt extraslag", "förmaksextraslag", "PAC"],
+  "category": "arytmi",
+  "action": "fortsatt",
+  "summary": "Enstaka extraslag från förmaken med smalt QRS. Inte ett avbrottskriterium i sig.",
+  "recognize": [
+    "Tidig P-våg med avvikande form",
+    "Smalt QRS",
+    "Pausen efter slaget är kortare än kompensatorisk"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "ves-enstaka",
+      "difference": "VES har brett QRS utan föregående P-våg."
+    },
+    {
+      "findingId": "svt",
+      "difference": "Flera snabba supraventrikulära slag i följd kan vara SVT."
+    }
+  ],
+  "todo": "Fortsätt testet och observera. Var uppmärksam på om extraslagen övergår i en snabb rytm.",
+  "ecg": {
+    "presetId": "sves-enstaka",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Disorders of Impulse Formation"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

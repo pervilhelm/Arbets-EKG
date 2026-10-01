@@ -1,0 +1,28 @@
+{
+  "id": "brostsmarta-okande",
+  "name": "Tilltagande bröstsmärta",
+  "aliases": ["bröstsmärta", "ökande bröstsmärta", "tryck i bröstet"],
+  "category": "symtom",
+  "action": "overvag",
+  "summary": "Bröstsmärta som ökar under belastningen men ännu inte är måttlig till svår.",
+  "recognize": [
+    "Patienten beskriver att smärtan eller trycket i bröstet ökar",
+    "Obehaget tilltar med belastningen"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "angina-mattlig-svar",
+      "difference": "Måttlig till svår angina är ett absolut kriterium."
+    }
+  ],
+  "todo": "Informera ansvarig läkare enligt klinikens rutin. Fråga regelbundet hur smärtan utvecklas och följ ST-nivån och BT.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

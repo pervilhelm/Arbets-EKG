@@ -1,0 +1,33 @@
+{
+  "id": "skankelblock-nytt",
+  "name": "Nytillkommet skänkelblock som inte direkt kan skiljas från VT",
+  "aliases": ["skänkelblock", "LBBB", "RBBB", "vänstergrenblock", "högergrenblock", "nytt skänkelblock"],
+  "category": "overledning",
+  "action": "overvag",
+  "summary": "Breda QRS-komplex som tillkommer under testet och inte direkt kan skiljas från VT.",
+  "recognize": ["QRS-bredd minst 120 ms som inte fanns i vila", "P-våg före varje QRS med konstant PR-tid"],
+  "confuseWith": [
+    {
+      "findingId": "vt-ihallande",
+      "difference": "Vid VT saknas P-vågor kopplade till QRS."
+    },
+    {
+      "findingId": "st-hojning",
+      "difference": "Skänkelblock ger sekundära ST-T-förändringar som kan likna ischemi."
+    }
+  ],
+  "todo": "Informera ansvarig läkare enligt klinikens rutin. Jämför med vilo-EKG och följ rytmen.",
+  "ecg": {
+    "presetId": "skankelblock-nytt",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "ves-enstaka",
+  "name": "Enstaka VES",
+  "aliases": ["VES", "ventrikulärt extraslag", "extraslag", "PVC"],
+  "category": "arytmi",
+  "action": "fortsatt",
+  "summary": "Enstaka ventrikulära extraslag med samma utseende. Inte ett avbrottskriterium i sig, men följs.",
+  "recognize": [
+    "Tidigt brett QRS utan föregående P-våg",
+    "T-våg med motsatt riktning mot QRS",
+    "Full kompensatorisk paus",
+    "Alla VES har samma form"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "ves-multifokala",
+      "difference": "Multifokala VES har olika form och är ett relativt kriterium."
+    },
+    {
+      "findingId": "sves-enstaka",
+      "difference": "SVES har smalt QRS och föregås av en tidig P-våg."
+    }
+  ],
+  "todo": "Fortsätt testet och observera. Var uppmärksam på om VES ökar, får olika form eller kommer i följd.",
+  "ecg": {
+    "presetId": "ves-enstaka",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Disorders of Impulse Formation"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

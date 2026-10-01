@@ -1,0 +1,33 @@
+{
+  "id": "ves-trioler",
+  "name": "Ventrikulära trioler (tre VES i följd)",
+  "aliases": ["triol", "trioler", "tre VES i följd", "salva"],
+  "category": "arytmi",
+  "action": "overvag",
+  "summary": "Tre ventrikulära extraslag i direkt följd, en kort salva.",
+  "recognize": ["Tre breda QRS i direkt följd utan P-vågor", "Återgår därefter till grundrytmen"],
+  "confuseWith": [
+    {
+      "findingId": "vt-ihallande",
+      "difference": "VT fortsätter; en triol upphör efter tre slag."
+    },
+    {
+      "findingId": "ves-multifokala",
+      "difference": "Multifokala VES har olika form men kommer inte nödvändigtvis i följd."
+    }
+  ],
+  "todo": "Informera ansvarig läkare enligt klinikens rutin och övervaka EKG noga. Ihållande VT är ett absolut kriterium.",
+  "ecg": {
+    "presetId": "ves-trioler",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

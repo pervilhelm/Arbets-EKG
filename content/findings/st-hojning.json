@@ -1,0 +1,37 @@
+{
+  "id": "st-hojning",
+  "name": "ST-höjning >1,0 mm i avledningar utan Q-våg från tidigare infarkt (ej aVR, aVL, V1)",
+  "aliases": ["ST-höjning", "ST-elevation", "STE"],
+  "category": "ischemi",
+  "action": "avbryt",
+  "summary": "ST-höjning över 1,0 mm i avledningar utan Q-våg från tidigare infarkt, utom aVR, aVL och V1. Kan tyda på akut ischemi.",
+  "recognize": [
+    "ST-sträckan ligger mer än 1,0 mm över baslinjen",
+    "Gäller avledningar utan Q-våg från tidigare infarkt",
+    "aVR, aVL och V1 räknas inte"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "st-sankning",
+      "difference": "ST-sänkning ligger under baslinjen och är ett relativt kriterium."
+    },
+    {
+      "findingId": "skankelblock-nytt",
+      "difference": "Vid skänkelblock är ST-T ofta sekundärt förändrat och svårbedömt."
+    }
+  ],
+  "todo": "Avbryt belastningen. Larma ansvarig läkare enligt klinikens rutin. Spara 12-avlednings-EKG, mät BT och fråga efter bröstsmärta. Fortsätt övervaka i återhämtningen.",
+  "ecg": {
+    "presetId": "st-hojning",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Absolute"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

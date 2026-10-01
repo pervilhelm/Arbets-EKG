@@ -1,0 +1,37 @@
+{
+  "id": "st-sankning",
+  "name": "Uttalad ST-sänkning >2 mm, horisontell eller nedåtsluttande, mätt 60 till 80 ms efter J-punkten, vid misstänkt ischemi",
+  "aliases": ["ST-sänkning", "ST-depression", "horisontell ST-sänkning", "nedåtsluttande ST"],
+  "category": "ischemi",
+  "action": "overvag",
+  "summary": "Uttalad ST-sänkning över 2 mm, horisontell eller nedåtsluttande, mätt 60 till 80 ms efter J-punkten. Tecken på ischemi.",
+  "recognize": [
+    "ST-sträckan ligger mer än 2 mm under baslinjen",
+    "Mäts 60 till 80 ms efter J-punkten",
+    "Horisontell eller nedåtsluttande form"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "st-hojning",
+      "difference": "ST-höjning ligger över baslinjen och är ett absolut kriterium."
+    },
+    {
+      "findingId": "tekniskt-fel",
+      "difference": "Baslinjevandring kan ge skenbar ST-förskjutning; jämför flera slag."
+    }
+  ],
+  "todo": "Informera ansvarig läkare enligt klinikens rutin. Fråga efter bröstsmärta, mät BT och följ ST-nivån noga.",
+  "ecg": {
+    "presetId": "st-sankning",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

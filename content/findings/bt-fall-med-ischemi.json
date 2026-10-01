@@ -1,0 +1,32 @@
+{
+  "id": "bt-fall-med-ischemi",
+  "name": "Systoliskt BT-fall >10 mmHg trots ökad belastning, med andra tecken på ischemi",
+  "aliases": ["BT-fall", "blodtrycksfall", "sjunkande blodtryck"],
+  "category": "blodtryck",
+  "action": "avbryt",
+  "summary": "Systoliskt BT sjunker mer än 10 mmHg trots att belastningen ökar, samtidigt som andra tecken på ischemi finns, t.ex. bröstsmärta eller ST-förändring.",
+  "recognize": [
+    "Systoliskt BT mer än 10 mmHg lägre trots ökad belastning",
+    "Samtidigt andra tecken på ischemi, t.ex. bröstsmärta eller ST-förändring"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "bt-fall-utan-ischemi",
+      "difference": "Utan andra tecken på ischemi är BT-fallet ett relativt kriterium."
+    },
+    {
+      "findingId": "tekniskt-fel",
+      "difference": "Ett felaktigt mätvärde kan se ut som ett BT-fall; mät om."
+    }
+  ],
+  "todo": "Avbryt belastningen. Larma ansvarig läkare enligt klinikens rutin. Mät om BT, fortsätt EKG-övervakning och fråga efter symtom.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Absolute"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

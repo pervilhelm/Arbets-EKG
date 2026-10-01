@@ -1,0 +1,37 @@
+{
+  "id": "ves-multifokala",
+  "name": "Multifokala VES",
+  "aliases": ["multifokala VES", "polymorfa VES", "ventrikulära extraslag"],
+  "category": "arytmi",
+  "action": "overvag",
+  "summary": "Ventrikulära extraslag med olika utseende, vilket tyder på flera retbara fokus i kamrarna.",
+  "recognize": [
+    "Tidiga breda QRS utan föregående P-våg",
+    "Minst två olika VES-former i samma avledning",
+    "Kompensatorisk paus efter varje VES"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "ves-enstaka",
+      "difference": "Enstaka VES har samma form och är ett fortsätt-fynd."
+    },
+    {
+      "findingId": "sves-enstaka",
+      "difference": "SVES har smalt QRS och föregås av en tidig P-våg."
+    }
+  ],
+  "todo": "Informera ansvarig läkare enligt klinikens rutin. Följ EKG noga: ökar extraslagen eller kommer de i följd?",
+  "ecg": {
+    "presetId": "ves-multifokala",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

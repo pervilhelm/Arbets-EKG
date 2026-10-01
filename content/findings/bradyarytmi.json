@@ -1,0 +1,32 @@
+{
+  "id": "bradyarytmi",
+  "name": "Bradyarytmi som kan bli mer komplex eller påverka hemodynamiken",
+  "aliases": ["bradykardi", "långsam puls", "bradyarytmi"],
+  "category": "arytmi",
+  "action": "overvag",
+  "summary": "Långsam rytm eller frekvens som sjunker under belastning och kan påverka cirkulationen.",
+  "recognize": [
+    "Hjärtfrekvens som inte stiger, eller sjunker, trots ökad belastning",
+    "Pauser eller långsam rytm i EKG"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "av-block-2-3",
+      "difference": "Vid AV-block II eller III följs inte alla P-vågor av QRS."
+    }
+  ],
+  "todo": "Informera ansvarig läkare enligt klinikens rutin. Mät BT, fråga efter yrsel och följ rytmen.",
+  "ecg": {
+    "presetId": "bradyarytmi",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

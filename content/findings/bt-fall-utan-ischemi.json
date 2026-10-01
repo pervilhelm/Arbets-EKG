@@ -1,0 +1,33 @@
+{
+  "id": "bt-fall-utan-ischemi",
+  "name": "Systoliskt BT-fall >10 mmHg, kvarstående under utgångsvärdet trots ökad belastning, utan andra tecken på ischemi",
+  "aliases": ["BT-fall", "blodtrycksfall", "sjunkande blodtryck"],
+  "category": "blodtryck",
+  "action": "overvag",
+  "summary": "Systoliskt BT sjunker mer än 10 mmHg och ligger kvar under utgångsvärdet trots ökad belastning, utan andra tecken på ischemi.",
+  "recognize": [
+    "Systoliskt BT mer än 10 mmHg lägre trots ökad belastning",
+    "BT ligger kvar under utgångsvärdet",
+    "Ingen bröstsmärta eller ST-förändring"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "bt-fall-med-ischemi",
+      "difference": "Med andra tecken på ischemi gäller avbrott."
+    },
+    {
+      "findingId": "tekniskt-fel",
+      "difference": "Ett felaktigt mätvärde kan se ut som ett BT-fall; mät om."
+    }
+  ],
+  "todo": "Mät om BT. Informera ansvarig läkare enligt klinikens rutin och var uppmärksam på bröstsmärta, ST-förändring och yrsel.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

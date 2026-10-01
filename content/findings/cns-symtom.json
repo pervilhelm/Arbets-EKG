@@ -1,0 +1,33 @@
+{
+  "id": "cns-symtom",
+  "name": "CNS-symtom: ataxi, yrsel, nära synkope",
+  "aliases": ["yrsel", "ataxi", "nära svimning", "presynkope", "ostadighet"],
+  "category": "symtom",
+  "action": "avbryt",
+  "summary": "Yrsel, ostadighet eller känsla av att svimma under belastningen. Kan tyda på att blodflödet till hjärnan inte räcker till.",
+  "recognize": [
+    "Patienten säger sig vara yr eller nära att svimma",
+    "Ostadighet eller svårt att koordinera trampandet",
+    "Påverkad kontakt"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "trotthet-dyspne",
+      "difference": "Trötthet och andfåddhet utan yrsel eller ostadighet."
+    },
+    {
+      "findingId": "dalig-perfusion",
+      "difference": "Dålig perfusion syns på huden; CNS-symtom märks i hur patienten mår och rör sig."
+    }
+  ],
+  "todo": "Avbryt belastningen och se till att patienten inte faller av cykeln. Larma ansvarig läkare enligt klinikens rutin. Mät BT och kontrollera EKG-rytmen.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Absolute"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

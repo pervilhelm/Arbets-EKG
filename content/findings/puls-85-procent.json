@@ -1,0 +1,25 @@
+{
+  "id": "puls-85-procent",
+  "name": "Uppnådd 85 % av åldersberäknad maxpuls, inte ensamt ett avbrottskriterium",
+  "aliases": ["85 %", "maxpuls", "målpuls", "åldersberäknad maxpuls"],
+  "category": "ovrigt",
+  "action": "fortsatt",
+  "summary": "Patienten har nått 85 % av åldersberäknad maxpuls. Det är inte ensamt ett skäl att avbryta testet.",
+  "recognize": ["Aktuell hjärtfrekvens är minst 85 % av åldersberäknad maxpuls"],
+  "confuseWith": [
+    {
+      "findingId": "sinustakykardi",
+      "difference": "Sinustakykardi beskriver rytmen; 85 %-gränsen gäller frekvensens nivå."
+    }
+  ],
+  "todo": "Fortsätt testet och observera. Följ klinikens rutin för när testet avslutas.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "HR Response"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "angina-mattlig-svar",
+  "name": "Måttlig till svår angina",
+  "aliases": ["angina", "kärlkramp", "bröstsmärta", "angina pectoris"],
+  "category": "symtom",
+  "action": "avbryt",
+  "summary": "Bröstsmärta av kärlkrampstyp som patienten beskriver som måttlig till svår.",
+  "recognize": [
+    "Tryck, värk eller sammandragande känsla i bröstet, ibland med utstrålning",
+    "Patienten beskriver smärtan som måttlig eller svår"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "brostsmarta-okande",
+      "difference": "Tilltagande bröstsmärta som ännu inte är måttlig till svår är ett relativt kriterium."
+    },
+    {
+      "findingId": "trotthet-dyspne",
+      "difference": "Trötthet och andfåddhet utan bröstsmärta."
+    }
+  ],
+  "todo": "Avbryt belastningen. Larma ansvarig läkare enligt klinikens rutin. Fortsätt EKG- och BT-övervakning och följ smärtan i återhämtningen.",
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Absolute"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}
