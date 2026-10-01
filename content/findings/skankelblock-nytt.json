@@ -19,7 +19,7 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin. Jämför med vilo-EKG och följ rytmen.",
   "ecg": {
     "presetId": "skankelblock-nytt",
-    "stripIds": []
+    "stripIds": ["skankelblock-nytt-1", "skankelblock-nytt-2"]
   },
   "sources": [
     {

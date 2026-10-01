@@ -23,7 +23,7 @@
   "todo": "Avbryt belastningen. Larma ansvarig läkare enligt klinikens rutin. Spara 12-avlednings-EKG, mät BT och fråga efter bröstsmärta. Fortsätt övervaka i återhämtningen.",
   "ecg": {
     "presetId": "st-hojning",
-    "stripIds": []
+    "stripIds": ["st-hojning-1"]
   },
   "sources": [
     {

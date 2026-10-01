@@ -8,12 +8,14 @@
     "id": "mitdb",
     "title": "MIT-BIH Arrhythmia Database, PhysioNet",
     "url": "https://physionet.org/content/mitdb/1.0.0/",
-    "license": "Open Data Commons Attribution License v1.0"
+    "license": "Open Data Commons Attribution License v1.0",
+    "citation": "Moody GB, Mark RG. The impact of the MIT-BIH Arrhythmia Database. IEEE Eng in Med and Biol 20(3):45-50 (May-June 2001). (PMID: 11446209). Pollard, T., Moody, B. E., Lehman, L., Gow, B., Fernandes, C., Xie, C., Johnson, A., Mark, R. G., & Heldt, T. (2026). PhysioNet as a global platform for biomedical research. Nature Health. https://doi.org/10.1038/s44360-026-00096-z"
   },
   {
     "id": "ptb-xl",
     "title": "PTB-XL v1.0.3, PhysioNet",
     "url": "https://physionet.org/content/ptb-xl/1.0.3/",
-    "license": "Creative Commons Attribution 4.0"
+    "license": "Creative Commons Attribution 4.0",
+    "citation": "Wagner, P., Strodthoff, N., Bousseljot, R., Samek, W., & Schaeffter, T. (2022). PTB-XL, a large publicly available electrocardiography dataset (version 1.0.3). PhysioNet. RRID:SCR_007345. https://doi.org/10.13026/kfzx-aw45. Wagner, P., Strodthoff, N., Bousseljot, R.-D., Kreiseler, D., Lunze, F.I., Samek, W., Schaeffter, T. (2020), PTB-XL: A Large Publicly Available ECG Dataset. Scientific Data. https://doi.org/10.1038/s41597-020-0495-6. Pollard, T., Moody, B. E., Lehman, L., Gow, B., Fernandes, C., Xie, C., Johnson, A., Mark, R. G., & Heldt, T. (2026). PhysioNet as a global platform for biomedical research. Nature Health. https://doi.org/10.1038/s44360-026-00096-z"
   }
 ]

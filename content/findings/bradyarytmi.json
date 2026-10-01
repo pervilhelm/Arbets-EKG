@@ -18,7 +18,7 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin. Mät BT, fråga efter yrsel och följ rytmen.",
   "ecg": {
     "presetId": "bradyarytmi",
-    "stripIds": []
+    "stripIds": ["bradyarytmi-1", "bradyarytmi-2"]
   },
   "sources": [
     {

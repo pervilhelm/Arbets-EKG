@@ -23,7 +23,7 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin. Följ EKG noga: ökar extraslagen eller kommer de i följd?",
   "ecg": {
     "presetId": "ves-multifokala",
-    "stripIds": []
+    "stripIds": ["ves-multifokala-1", "ves-multifokala-2"]
   },
   "sources": [
     {

@@ -23,7 +23,7 @@
   "todo": "Fortsätt testet och observera. Var uppmärksam på om extraslagen övergår i en snabb rytm.",
   "ecg": {
     "presetId": "sves-enstaka",
-    "stripIds": []
+    "stripIds": ["sves-enstaka-1", "sves-enstaka-2"]
   },
   "sources": [
     {

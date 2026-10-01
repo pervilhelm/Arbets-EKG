@@ -23,7 +23,7 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin. Fråga efter bröstsmärta, mät BT och följ ST-nivån noga.",
   "ecg": {
     "presetId": "st-sankning",
-    "stripIds": []
+    "stripIds": ["st-sankning-1"]
   },
   "sources": [
     {

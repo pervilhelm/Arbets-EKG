@@ -30,6 +30,17 @@ Träningsapp för sjuksköterskor: EKG-, blodtrycks- och symtomfynd vid arbetspr
 
 Ikonerna genereras med `npx tsx scripts/generate-icons.ts`.
 
+### EKG-remsor (Python, körs lokalt, appen kör aldrig Python)
+
+```bash
+/opt/homebrew/bin/python3.12 -m venv scripts/ecg/.venv
+scripts/ecg/.venv/bin/pip install -r scripts/ecg/requirements.txt
+scripts/ecg/.venv/bin/python scripts/ecg/extract_strips.py --inventory mitdb   # eller ptb-xl
+scripts/ecg/.venv/bin/python scripts/ecg/extract_strips.py [--only <fynd-id>]
+```
+
+Urvalet styrs av `scripts/ecg/strip_map.yaml`. Skriptet skriver `public/strips/*.json` och uppdaterar `stripIds` i fyndfilerna. Det är idempotent (fast seed). Bara JSON-filerna committas.
+
 ## Mappstruktur
 
 - `content/` allt kliniskt innehåll som JSON: `findings/`, `ecg-presets/`, `scenarios/`, `checklists/`, `protocol.json`, `sources.json`.

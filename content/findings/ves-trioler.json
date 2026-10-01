@@ -19,7 +19,7 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin och övervaka EKG noga. Ihållande VT är ett absolut kriterium.",
   "ecg": {
     "presetId": "ves-trioler",
-    "stripIds": []
+    "stripIds": ["ves-trioler-1", "ves-trioler-2"]
   },
   "sources": [
     {

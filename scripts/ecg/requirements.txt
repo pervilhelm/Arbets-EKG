@@ -1,0 +1,5 @@
+wfdb==4.3.1
+numpy==2.5.3
+scipy==1.18.1
+pyyaml==6.0.3
+pandas==3.0.6

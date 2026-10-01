@@ -122,6 +122,32 @@ describe("validateContent", () => {
     ]);
   });
 
+  it("requires strip license and citation to match the dataset source", () => {
+    const input = baseInput();
+    input.sources!.data = [
+      { id: "aha-2013", title: "AHA", url: "https://example.org/aha" },
+      { id: "mitdb", title: "MIT", url: "https://example.org/mit", license: "ODC-By", citation: "Moody" },
+    ];
+    const strip = (license: string) => ({
+      id: "b-1",
+      findingId: "b",
+      dataset: "mitdb",
+      record: "100",
+      startSec: 0,
+      fs: 250,
+      leads: { MLII: [0, 0.1] },
+      license,
+      citation: "Moody",
+      review: draft,
+    });
+    input.strips = [{ file: "public/strips/b-1.json", data: strip("ODC-By") }];
+    expect(validateContent(input)).toEqual([]);
+    input.strips = [{ file: "public/strips/b-1.json", data: strip("CC0") }];
+    expect(validateContent(input)).toEqual([
+      expect.objectContaining({ file: "public/strips/b-1.json", field: "license" }),
+    ]);
+  });
+
   it("rejects duplicate ids within a type", () => {
     const input = baseInput();
     input.findings.push({ file: "content/findings/a2.json", data: finding("a") });

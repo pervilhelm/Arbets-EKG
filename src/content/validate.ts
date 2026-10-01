@@ -114,7 +114,18 @@ export function validateContent(input: ContentInput, options: ValidateOptions = 
     }
   }
   for (const { file, value: p } of presets) ref(file, "findingId", p.findingId, findingIds, "fynd");
-  for (const { file, value: s } of strips) ref(file, "findingId", s.findingId, findingIds, "fynd");
+  for (const { file, value: s } of strips) {
+    ref(file, "findingId", s.findingId, findingIds, "fynd");
+    // The sources page shows license and citation per dataset; strips must match it.
+    const source = sources.find((src) => src.value.id === s.dataset)?.value;
+    if (!source) push(file, "dataset", `källa "${s.dataset}" saknas i sources.json`);
+    else {
+      if (s.license !== source.license)
+        push(file, "license", `skiljer sig från sources.json för "${s.dataset}"`);
+      if (s.citation !== source.citation)
+        push(file, "citation", `skiljer sig från sources.json för "${s.dataset}"`);
+    }
+  }
   for (const { file, value: s } of scenarios) {
     ref(file, "baseline.presetId", s.baseline.presetId, presetIds, "preset");
     s.events.forEach((e, i) => {

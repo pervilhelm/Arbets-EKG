@@ -133,6 +133,7 @@ export const Source = z.object({
   title: z.string(),
   url: z.string().url(),
   license: z.string().optional(),
+  citation: z.string().optional(), // required citation text, e.g. for PhysioNet datasets
 });
 
 export type Action = z.infer<typeof Action>;

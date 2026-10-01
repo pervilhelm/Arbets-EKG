@@ -24,7 +24,7 @@
   "todo": "Fortsätt testet och observera. Var uppmärksam på om VES ökar, får olika form eller kommer i följd.",
   "ecg": {
     "presetId": "ves-enstaka",
-    "stripIds": []
+    "stripIds": ["ves-enstaka-1", "ves-enstaka-2"]
   },
   "sources": [
     {

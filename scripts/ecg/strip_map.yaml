@@ -1,0 +1,94 @@
+# Strip selection per finding id. Codes come from the inventory
+# (extract_strips.py --inventory mitdb | ptb-xl) and the MIT-BIH directory:
+# https://physionet.org/physiobank/database/html/mitdbdir/tables.htm and records.htm.
+# Note: in MIT-BIH "(T" is ventricular trigeminy, not triplets.
+
+vt-ihallande:
+  dataset: mitdb
+  rhythm: "(VT"
+  min_sec: 5
+  min_rate: 120 # excludes the slow bidirectional VT in record 223 (records.htm)
+  count: 2
+
+av-block-2-3:
+  - dataset: mitdb
+    rhythm: "(BII" # record 231: 2:1 block and Mobitz II
+    count: 1
+  - dataset: ptb-xl
+    scp: 3AVB
+    count: 1
+
+st-hojning:
+  dataset: ptb-xl
+  scp: STE_
+  exclude_scp: [CLBBB, CRBBB, LVH, WPW, PACE]
+  count: 1
+
+st-sankning:
+  dataset: ptb-xl
+  scp: [INJAS, INJAL, INJIL, INJLA, INJIN] # subendocardial injury
+  exclude_scp: [CLBBB, CRBBB, LVH, DIG, WPW, PACE]
+  count: 1
+
+ves-enstaka:
+  dataset: mitdb
+  beats: NNVNN
+  in_rhythm: "(N"
+  max_count: { V: 1, A: 0 } # exactly one ectopic beat in the strip
+  count: 2
+
+ves-multifokala:
+  dataset: mitdb
+  beats: V
+  in_rhythm: "(N"
+  multiform: true
+  # Records described as having multiform PVCs in records.htm, without paced beats.
+  records: [106, 108, 109, 118, 124, 200, 203, 207, 210, 213, 214, 215, 219, 221, 223, 228, 233]
+  count: 2
+
+ves-trioler:
+  dataset: mitdb
+  # MIT-BIH annotates a triplet as its own "(VT" episode, so the surrounding
+  # rhythm is checked through the beats instead: normal beats on both sides.
+  beats: NNVVVNN
+  # 203 and 221: atrial fibrillation (tables.htm). 207, 214: bundle branch block
+  # beats. 217: paced beats.
+  exclude_records: [203, 221, 207, 214, 217]
+  count: 2
+
+sves-enstaka:
+  dataset: mitdb
+  beats: NNANN
+  in_rhythm: "(N"
+  max_count: { A: 1, V: 0 }
+  count: 2
+
+svt:
+  dataset: mitdb
+  rhythm: "(SVTA"
+  min_sec: 3
+  exclude_records: [207] # SVTA with wide, aberrant QRS; the card teaches narrow QRS
+  count: 2
+
+bradyarytmi:
+  - dataset: mitdb
+    rhythm: "(SBR" # record 232: sinus bradycardia with long pauses
+    count: 1
+  - dataset: ptb-xl
+    scp: SBRAD
+    require_scp: [NORM]
+    count: 1
+
+skankelblock-nytt:
+  - dataset: ptb-xl
+    scp: CLBBB
+    count: 1
+  - dataset: ptb-xl
+    scp: CRBBB
+    count: 1
+
+sinustakykardi:
+  dataset: ptb-xl
+  scp: STACH
+  require_scp: [NORM]
+  count: 1

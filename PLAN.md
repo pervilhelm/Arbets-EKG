@@ -27,7 +27,7 @@ Kopieras till `CLAUDE.md` i fas 1.
 - [x] Fas 1: projektsetup och PWA
 - [x] Fas 2: innehållslager och validering
 - [x] Fas 3: EKG-motor
-- [ ] Fas 4: riktiga EKG-remsor
+- [x] Fas 4: riktiga EKG-remsor
 - [ ] Fas 5: snabbuppslag
 - [ ] Fas 6: simulator
 - [ ] Fas 7: repetition och statistik

@@ -15,7 +15,7 @@
   "todo": "Fortsätt testet och observera EKG, BT och symtom enligt protokollet.",
   "ecg": {
     "presetId": "sinustakykardi",
-    "stripIds": []
+    "stripIds": ["sinustakykardi-1"]
   },
   "sources": [
     {

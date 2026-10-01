@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import { AboutPage } from "./features/about/AboutPage";
+import { SourcesPage } from "./features/about/SourcesPage";
 import { ChecklistsPage } from "./features/checklists/ChecklistsPage";
 import { LookupHomePage } from "./features/lookup/LookupHomePage";
 import { ReviewPage } from "./review/ReviewPage";
@@ -16,6 +17,7 @@ export const router = createBrowserRouter(
         { path: "repetera", element: <ReviewPage /> },
         { path: "checklistor", element: <ChecklistsPage /> },
         { path: "om", element: <AboutPage /> },
+        { path: "om/kallor", element: <SourcesPage /> },
         ...(import.meta.env.DEV
           ? [
               {

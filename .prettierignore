@@ -6,3 +6,5 @@ PLAN.md
 public/strips
 playwright-report
 test-results
+scripts/ecg/.venv
+scripts/ecg/.cache

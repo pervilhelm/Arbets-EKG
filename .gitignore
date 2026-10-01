@@ -27,3 +27,8 @@ dist-ssr
 dev-dist
 playwright-report
 test-results
+
+# Python pipeline
+scripts/ecg/.venv
+scripts/ecg/.cache
+__pycache__

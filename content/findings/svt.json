@@ -23,7 +23,7 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin. Mät BT, fråga efter symtom och följ EKG.",
   "ecg": {
     "presetId": "svt",
-    "stripIds": []
+    "stripIds": ["svt-1", "svt-2"]
   },
   "sources": [
     {
