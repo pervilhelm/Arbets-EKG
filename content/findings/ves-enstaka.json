@@ -1,7 +1,12 @@
 {
   "id": "ves-enstaka",
   "name": "Enstaka VES",
-  "aliases": ["VES", "ventrikulärt extraslag", "extraslag", "PVC"],
+  "aliases": [
+    "VES",
+    "ventrikulärt extraslag",
+    "extraslag",
+    "PVC"
+  ],
   "category": "arytmi",
   "action": "fortsatt",
   "summary": "Enstaka ventrikulära extraslag med samma utseende. Inte ett avbrottskriterium i sig, men följs.",
@@ -24,7 +29,11 @@
   "todo": "Fortsätt testet och observera. Var uppmärksam på om VES ökar, får olika form eller kommer i följd.",
   "ecg": {
     "presetId": "ves-enstaka",
-    "stripIds": ["ves-enstaka-1", "ves-enstaka-2"]
+    "stripIds": [
+      "ves-enstaka-1",
+      "ves-enstaka-2",
+      "ves-enstaka-3"
+    ]
   },
   "sources": [
     {

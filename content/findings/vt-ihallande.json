@@ -1,7 +1,12 @@
 {
   "id": "vt-ihallande",
   "name": "Ihållande ventrikeltakykardi",
-  "aliases": ["VT", "kammartakykardi", "ventrikeltakykardi", "ihållande VT"],
+  "aliases": [
+    "VT",
+    "kammartakykardi",
+    "ventrikeltakykardi",
+    "ihållande VT"
+  ],
   "category": "arytmi",
   "action": "avbryt",
   "summary": "Snabb, regelbunden rytm med breda QRS-komplex från kamrarna. Kan snabbt leda till påverkad cirkulation och kammarflimmer.",
@@ -28,7 +33,9 @@
   "todo": "Avbryt belastningen omedelbart. Larma ansvarig läkare enligt klinikens rutin. Bedöm medvetande och andning, fortsätt EKG-övervakning och mät BT.",
   "ecg": {
     "presetId": "vt-ihallande",
-    "stripIds": []
+    "stripIds": [
+      "vt-ihallande-1"
+    ]
   },
   "sources": [
     {

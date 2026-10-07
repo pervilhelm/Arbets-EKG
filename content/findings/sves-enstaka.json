@@ -1,7 +1,12 @@
 {
   "id": "sves-enstaka",
   "name": "Enstaka SVES",
-  "aliases": ["SVES", "supraventrikulärt extraslag", "förmaksextraslag", "PAC"],
+  "aliases": [
+    "SVES",
+    "supraventrikulärt extraslag",
+    "förmaksextraslag",
+    "PAC"
+  ],
   "category": "arytmi",
   "action": "fortsatt",
   "summary": "Enstaka extraslag från förmaken med smalt QRS. Inte ett avbrottskriterium i sig.",
@@ -23,7 +28,11 @@
   "todo": "Fortsätt testet och observera. Var uppmärksam på om extraslagen övergår i en snabb rytm.",
   "ecg": {
     "presetId": "sves-enstaka",
-    "stripIds": ["sves-enstaka-1", "sves-enstaka-2"]
+    "stripIds": [
+      "sves-enstaka-1",
+      "sves-enstaka-2",
+      "sves-enstaka-3"
+    ]
   },
   "sources": [
     {

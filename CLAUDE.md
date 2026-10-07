@@ -42,11 +42,12 @@ Träningsapp för sjuksköterskor: tolka EKG och känna igen arytmier under arbe
 ```bash
 /opt/homebrew/bin/python3.12 -m venv scripts/ecg/.venv
 scripts/ecg/.venv/bin/pip install -r scripts/ecg/requirements.txt
-scripts/ecg/.venv/bin/python scripts/ecg/extract_strips.py --inventory mitdb   # eller ptb-xl
+scripts/ecg/.venv/bin/python scripts/ecg/extract_strips.py --inventory mitdb   # eller incartdb, ptb-xl
 scripts/ecg/.venv/bin/python scripts/ecg/extract_strips.py [--only <fynd-id>]
+scripts/ecg/.venv/bin/python scripts/ecg/contact_sheet.py [--only <prefix>]   # kontaktark i scripts/ecg/.cache/contact
 ```
 
-Urvalet styrs av `scripts/ecg/strip_map.yaml`. Skriptet skriver `public/strips/*.json` och uppdaterar `stripIds` i fyndfilerna. Det är idempotent. Bara JSON-filerna committas.
+Urvalet styrs av `scripts/ecg/strip_map.yaml`. Skriptet skriver `public/strips/*.json` och uppdaterar `stripIds` i fyndfilerna. Det är idempotent och hämtar från PhysioNets S3-spegel till `scripts/ecg/.cache`. Bara JSON-filerna committas.
 
 ## Mappstruktur
 

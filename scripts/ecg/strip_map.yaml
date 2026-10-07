@@ -1,14 +1,19 @@
 # Strip selection per finding id. Codes come from the inventory
-# (extract_strips.py --inventory mitdb | ptb-xl) and the MIT-BIH directory:
+# (extract_strips.py --inventory mitdb | incartdb | ptb-xl) and the MIT-BIH directory:
 # https://physionet.org/physiobank/database/html/mitdbdir/tables.htm and records.htm.
 # Note: in MIT-BIH "(T" is ventricular trigeminy, not triplets.
+# MIT-BIH strips hold one lead and serve as extra rhythm examples. Every ECG
+# finding also gets at least one 12-lead strip from incartdb or ptb-xl.
+
+# MIT-BIH has no sustained fast VT (all episodes >= 120/min are shorter than 5 s).
+# INCART record I42 holds a 60 s run at about 175/min; I62 is a slow
+# ventricular rhythm (about 90/min) and is excluded by min_rate.
 
 vt-ihallande:
-  dataset: mitdb
-  rhythm: "(VT"
-  min_sec: 5
-  min_rate: 120 # excludes the slow bidirectional VT in record 223 (records.htm)
-  count: 2
+  dataset: incartdb
+  beats: VVVVVVVVVVVVVVVVVVVV
+  min_rate: 130
+  count: 1
 
 av-block-2-3:
   - dataset: mitdb
@@ -31,44 +36,71 @@ st-sankning:
   count: 1
 
 ves-enstaka:
-  dataset: mitdb
-  beats: NNVNN
-  in_rhythm: "(N"
-  max_count: { V: 1, A: 0 } # exactly one ectopic beat in the strip
-  count: 2
+  - dataset: mitdb
+    beats: NNVNN
+    in_rhythm: "(N"
+    max_count: { V: 1, A: 0 } # exactly one ectopic beat in the strip
+    count: 2
+  - dataset: incartdb
+    beats: NNNVNNN
+    max_count: { V: 1, A: 0, F: 0 }
+    clean: true
+    count: 1
 
 ves-multifokala:
-  dataset: mitdb
-  beats: V
-  in_rhythm: "(N"
-  multiform: true
-  # Records described as having multiform PVCs in records.htm, without paced beats.
-  records: [106, 108, 109, 118, 124, 200, 203, 207, 210, 213, 214, 215, 219, 221, 223, 228, 233]
-  count: 2
+  - dataset: mitdb
+    beats: V
+    in_rhythm: "(N"
+    multiform: true
+    # Records described as having multiform PVCs in records.htm, without paced beats.
+    records: [106, 108, 109, 118, 124, 200, 203, 207, 210, 213, 214, 215, 219, 221, 223, 228, 233]
+    count: 2
+  - dataset: incartdb
+    beats: V
+    multiform: true
+    # I23 is described as polymorphic PVCs; the others have many PVCs in sinus rhythm.
+    records: [I23, I03, I13, I19, I27, I51, I53]
+    max_count: { F: 0, A: 0 }
+    clean: true
+    count: 1
 
 ves-trioler:
-  dataset: mitdb
-  # MIT-BIH annotates a triplet as its own "(VT" episode, so the surrounding
-  # rhythm is checked through the beats instead: normal beats on both sides.
-  beats: NNVVVNN
-  # 203 and 221: atrial fibrillation (tables.htm). 207, 214: bundle branch block
-  # beats. 217: paced beats.
-  exclude_records: [203, 221, 207, 214, 217]
-  count: 2
+  - dataset: mitdb
+    # MIT-BIH annotates a triplet as its own "(VT" episode, so the surrounding
+    # rhythm is checked through the beats instead: normal beats on both sides.
+    beats: NNVVVNN
+    # 203 and 221: atrial fibrillation (tables.htm). 207, 214: bundle branch block
+    # beats. 217: paced beats.
+    exclude_records: [203, 221, 207, 214, 217]
+    count: 2
+  - dataset: incartdb
+    beats: NNVVVNN
+    max_count: { F: 0 }
+    clean: true
+    count: 1
 
 sves-enstaka:
-  dataset: mitdb
-  beats: NNANN
-  in_rhythm: "(N"
-  max_count: { A: 1, V: 0 }
-  count: 2
+  - dataset: mitdb
+    beats: NNANN
+    in_rhythm: "(N"
+    max_count: { A: 1, V: 0 }
+    count: 2
+  - dataset: incartdb
+    beats: NNNANNN
+    exclude_records: [I06] # muscle noise in the limb leads (contact sheet)
+    max_count: { A: 1, V: 0, F: 0 }
+    clean: true
+    count: 1
 
 svt:
-  dataset: mitdb
-  rhythm: "(SVTA"
-  min_sec: 3
-  exclude_records: [207] # SVTA with wide, aberrant QRS; the card teaches narrow QRS
-  count: 2
+  - dataset: mitdb
+    rhythm: "(SVTA"
+    min_sec: 3
+    exclude_records: [207] # SVTA with wide, aberrant QRS; the card teaches narrow QRS
+    count: 2
+  - dataset: ptb-xl
+    scp: [SVTAC, PSVT]
+    count: 1
 
 bradyarytmi:
   - dataset: mitdb
@@ -92,3 +124,11 @@ sinustakykardi:
   scp: STACH
   require_scp: [NORM]
   count: 1
+
+# Normal 12-lead ECGs (sinus rhythm, no finding) as baselines for the cases.
+normal:
+  dataset: ptb-xl
+  scp: NORM
+  require_scp: [SR]
+  exclude_scp: [PVC, PAC, SARRH, LAFB, IRBBB, 1AVB, LVH, LPR]
+  rate_bins: [[55, 65], [65, 75], [75, 85], [85, 100]]

@@ -1,7 +1,11 @@
 {
   "id": "svt",
   "name": "Supraventrikulär takykardi",
-  "aliases": ["SVT", "PSVT", "paroxysmal takykardi"],
+  "aliases": [
+    "SVT",
+    "PSVT",
+    "paroxysmal takykardi"
+  ],
   "category": "arytmi",
   "action": "overvag",
   "summary": "Snabb, regelbunden rytm från förmaken eller AV-knutan med smala QRS. Börjar och slutar ofta plötsligt.",
@@ -23,7 +27,11 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin. Mät BT, fråga efter symtom och följ EKG.",
   "ecg": {
     "presetId": "svt",
-    "stripIds": ["svt-1", "svt-2"]
+    "stripIds": [
+      "svt-1",
+      "svt-2",
+      "svt-3"
+    ]
   },
   "sources": [
     {

@@ -51,6 +51,6 @@ describe("bundled content", () => {
 
   it("loads protocol and sources", () => {
     expect(protocol).toMatchObject({ startW: 25, stepW: 25, stepSec: 120, recoveryMinSec: 360 });
-    expect(sources.map((s) => s.id)).toEqual(["aha-2013", "mitdb", "ptb-xl"]);
+    expect(sources.map((s) => s.id)).toEqual(["aha-2013", "mitdb", "incartdb", "ptb-xl"]);
   });
 });

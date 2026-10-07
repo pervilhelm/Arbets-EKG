@@ -14,7 +14,7 @@ Appen lär sjuksköterskor att **tolka EKG och känna igen arytmier under arbets
 
 - [x] Fas 1–4: app-skal och PWA, innehåll och validering, EKG-generator, remsor från PhysioNet
 - [ ] Fas 0: manuella förutsättningar (Oscar), krävs för fas 9
-- [ ] Fas 5: riktiga 12-avlednings-EKG
+- [x] Fas 5: riktiga 12-avlednings-EKG
 - [ ] Fas 6: fyndkort och uppslag
 - [ ] Fas 7: tolkningsguide
 - [ ] Fas 8: quiz och fallövningar
@@ -149,4 +149,4 @@ Kan läggas till senare vid behov: checklistor, statistiksida, export och import
 - `aha-2013`: Fletcher GF et al. Exercise Standards for Testing and Training. Circulation 2013;128:873-934. https://www.ahajournals.org/doi/10.1161/CIR.0b013e31829b5b44
 - `mitdb`: MIT-BIH Arrhythmia Database, PhysioNet. Open Data Commons Attribution License v1.0.
 - `ptb-xl`: PTB-XL v1.0.3, PhysioNet. Creative Commons Attribution 4.0.
-- Fler läggs till i fas 5, med licens och citering kontrollerade på PhysioNet.
+- `incartdb`: St Petersburg INCART 12-lead Arrhythmia Database v1.0.0, PhysioNet. Open Data Commons Attribution License v1.0. Licens och citering kontrollerade på PhysioNet 2026-10-07.

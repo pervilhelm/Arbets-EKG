@@ -73,8 +73,8 @@ export const EcgPreset = z.object({
 
 export const Strip = z.object({
   id: Id,
-  findingId: Id,
-  dataset: z.enum(["mitdb", "ptb-xl"]),
+  findingId: Id.optional(), // absent for normal ECGs (id "normal-<n>")
+  dataset: z.enum(["mitdb", "incartdb", "ptb-xl"]),
   record: z.string(),
   startSec: z.number(),
   fs: z.number(),
