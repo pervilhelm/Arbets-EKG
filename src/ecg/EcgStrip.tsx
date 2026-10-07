@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { mvToY, timeToX } from "./scale";
 
-type Props = {
+type SingleProps = {
   samples: Float32Array;
   fs: number;
   /** Screen reader label, e.g. "EKG-remsa: exempel på ihållande ventrikeltakykardi". */
@@ -88,7 +88,7 @@ function drawTrace(
   ctx.stroke();
 }
 
-export function EcgStrip({
+function SingleLeadStrip({
   samples,
   fs,
   label,
@@ -96,7 +96,7 @@ export function EcgStrip({
   heightMm = 32,
   minPxPerMm = 3,
   pxPerMm = 4,
-}: Props) {
+}: SingleProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -190,4 +190,128 @@ export function EcgStrip({
       />
     </div>
   );
+}
+
+// --- 12-lead layout -------------------------------------------------------
+
+/** Standard 3 x 4 grid, read column by column in time: I/aVR/V1/V4 first. */
+const LEAD_GRID = [
+  ["I", "aVR", "V1", "V4"],
+  ["II", "aVL", "V2", "V5"],
+  ["III", "aVF", "V3", "V6"],
+];
+const RHYTHM_LEAD = "II";
+const COLUMN_SEC = 2.5;
+const HEADER_MM = 7;
+const ROW_MM = 26;
+const DURATION_SEC = COLUMN_SEC * LEAD_GRID[0].length;
+const ROWS = 4; // three lead rows plus the rhythm strip
+
+type TwelveLeadProps = {
+  /** Samples in mV per lead name (I, II, III, aVR, aVL, aVF, V1 to V6). */
+  leads: Record<string, Float32Array>;
+  fs: number;
+  label: string;
+  /** Minimum CSS px per mm. The strip scrolls horizontally inside its box when wider. */
+  minPxPerMm?: number;
+};
+
+function TwelveLeadStrip({ leads, fs, label, minPxPerMm = 3 }: TwelveLeadProps) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => setContainerWidth(Math.floor(entry.contentRect.width)));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const widthMm = CAL_MM + DURATION_SEC * 25;
+  const heightMm = HEADER_MM + ROWS * ROW_MM;
+  const cssPxPerMm = Math.max(minPxPerMm, containerWidth / widthMm);
+  const cssWidth = Math.ceil(cssPxPerMm * widthMm);
+  const cssHeight = Math.ceil(cssPxPerMm * heightMm);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || containerWidth === 0) return;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.round(cssWidth * dpr);
+    canvas.height = Math.round(cssHeight * dpr);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const s = cssPxPerMm * dpr;
+    const x0 = CAL_MM * s;
+    drawGrid(ctx, canvas.width, canvas.height, s);
+
+    ctx.fillStyle = COLORS.trace;
+    ctx.font = `${Math.round(2.6 * s)}px system-ui, sans-serif`;
+    ctx.textBaseline = "middle";
+    ctx.fillText("25 mm/s    10 mm/mV", 2 * s, (HEADER_MM / 2) * s);
+
+    ctx.strokeStyle = COLORS.trace;
+    ctx.lineWidth = 1.5 * dpr;
+    ctx.lineJoin = "round";
+    ctx.font = `bold ${Math.round(3 * s)}px system-ui, sans-serif`;
+    ctx.textBaseline = "alphabetic";
+
+    const rowTop = (row: number) => (HEADER_MM + row * ROW_MM) * s;
+    const rowBaseline = (row: number) => Math.round(rowTop(row) + ROW_MM * s * BASELINE_FROM_TOP);
+
+    /** Draws one lead segment inside its row band so tall complexes cannot cover the next row. */
+    const drawSegment = (name: string, row: number, x: number, fromSec: number, toSec: number) => {
+      const samples = leads[name];
+      if (!samples) return;
+      const top = rowTop(row);
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(x, top, canvas.width - x, ROW_MM * s);
+      ctx.clip();
+      drawTrace(ctx, samples, fs, s, rowBaseline(row), x, fromSec, toSec);
+      ctx.restore();
+      ctx.fillText(name, x + 1.5 * s, top + 4 * s);
+    };
+
+    for (let row = 0; row < ROWS; row++) drawCalibration(ctx, s, rowBaseline(row));
+
+    LEAD_GRID[0].forEach((_, col) => {
+      const x = x0 + timeToX(col * COLUMN_SEC, s);
+      LEAD_GRID.forEach((names, row) =>
+        drawSegment(names[col], row, x, col * COLUMN_SEC, (col + 1) * COLUMN_SEC),
+      );
+      if (col > 0) {
+        // Short tick at the column boundary on every lead row.
+        for (let row = 0; row < ROWS - 1; row++) {
+          const y = rowBaseline(row);
+          ctx.beginPath();
+          ctx.moveTo(x, y - 2 * s);
+          ctx.lineTo(x, y + 2 * s);
+          ctx.stroke();
+        }
+      }
+    });
+    drawSegment(RHYTHM_LEAD, ROWS - 1, x0, 0, DURATION_SEC);
+  }, [leads, fs, cssPxPerMm, cssWidth, cssHeight, containerWidth]);
+
+  return (
+    <div ref={wrapRef} className="w-full overflow-x-auto">
+      <canvas
+        ref={canvasRef}
+        role="img"
+        aria-label={label}
+        style={{ width: cssWidth, height: cssHeight, display: "block" }}
+      />
+    </div>
+  );
+}
+
+type Props = ({ layout?: "single" } & SingleProps) | ({ layout: "12-lead" } & TwelveLeadProps);
+
+export function EcgStrip(props: Props) {
+  if (props.layout === "12-lead") return <TwelveLeadStrip {...props} />;
+  return <SingleLeadStrip {...props} />;
 }

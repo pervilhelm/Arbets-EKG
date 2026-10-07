@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router";
 import { AboutPage } from "./features/about/AboutPage";
 import { SourcesPage } from "./features/about/SourcesPage";
 import { ChecklistsPage } from "./features/checklists/ChecklistsPage";
+import { ActionListPage } from "./features/lookup/ActionListPage";
+import { FindingPage } from "./features/lookup/FindingPage";
 import { LookupHomePage } from "./features/lookup/LookupHomePage";
 import { ReviewPage } from "./review/ReviewPage";
 import { SimulatorListPage } from "./simulator/SimulatorListPage";
@@ -13,6 +15,8 @@ export const router = createBrowserRouter(
       element: <AppShell />,
       children: [
         { index: true, element: <LookupHomePage /> },
+        { path: "uppslag/:action", element: <ActionListPage /> },
+        { path: "fynd/:id", element: <FindingPage /> },
         { path: "simulator", element: <SimulatorListPage /> },
         { path: "repetera", element: <ReviewPage /> },
         { path: "checklistor", element: <ChecklistsPage /> },

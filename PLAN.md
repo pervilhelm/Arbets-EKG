@@ -15,7 +15,7 @@ Appen lär sjuksköterskor att **tolka EKG och känna igen arytmier under arbets
 - [x] Fas 1–4: app-skal och PWA, innehåll och validering, EKG-generator, remsor från PhysioNet
 - [ ] Fas 0: manuella förutsättningar (Oscar), krävs för fas 9
 - [x] Fas 5: riktiga 12-avlednings-EKG
-- [ ] Fas 6: fyndkort och uppslag
+- [x] Fas 6: fyndkort och uppslag
 - [ ] Fas 7: tolkningsguide
 - [ ] Fas 8: quiz och fallövningar
 - [ ] Fas 9: granskning och release
