@@ -40,10 +40,15 @@ Läggs till först efter klinikens PM och granskarens svar.
 
 ## Riktiga 12-avlednings-EKG (fas 5)
 
-| Fråga                                                                                                                                                                                                                                                                              | Vem svarar | Källa |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----- |
-| `vt-ihallande-1` kommer från INCART I42: en VT-episod på cirka 60 s i cirka 175/min under ett Holter-EKG. Remsan visar 10 s mitt i episoden. Räcker det som exempel på ihållande VT?                                                                                               | Granskaren | Fas 5 |
-| `ves-multifokala-3` (INCART I51) är vald för att två VES i fönstret har olika QRS-form i avledning II, under bigemini. Visar den multiforma VES?                                                                                                                                   | Granskaren | Fas 5 |
-| `svt-3` (PTB-XL 8461, kod SVTAC/PSVT) har baslinjevandring i slutet av V4–V6 och avledning II. Byt ut om det stör. Chapman/Shaoxing-databasen (_A large scale 12-lead ECG database for arrhythmia study_, CC BY 4.0) har fler SVT-EKG men saknar VT-kod, och användes därför inte. | Granskaren | Fas 5 |
-| INCART är Holter-EKG (257 Hz, omsamplat till 250 Hz), inte vilo-EKG. Ett kvalitetsfilter (baslinje och brus) och utesluten post I06 (brus) valde fönstren. Granskaren bekräftar att varje INCART-remsa visar fyndet.                                                               | Granskaren | Fas 5 |
-| Normala EKG `normal-1`–`normal-4` (PTB-XL, NORM och SR, cirka 60, 70, 80 och 90/min). Bekräfta att de är normala.                                                                                                                                                                  | Granskaren | Fas 5 |
+| Fråga                                                                                                                                            | Vem svarar           | Källa |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- | ----- |
+| `ves-multifokala-3` (INCART I51) är vald för att två VES i fönstret har olika QRS-form i avledning II, under bigemini. Visar den multiforma VES? | Oscar och granskaren | Fas 5 |
+
+### Besvarat 2026-10-07 (Oscar)
+
+- `vt-ihallande-1` (INCART I42, 10 s ur en VT-episod på cirka 60 s i cirka 175/min) räcker som exempel på ihållande VT.
+- `svt-3` (PTB-XL 8461) behålls trots baslinjevandringen i slutet.
+- INCART-remsorna är Holter-EKG. Granskaren bekräftar ändå varje remsa i fas 9.
+- De normala EKG:na `normal-1`–`normal-4` behålls. Granskaren bekräftar dem i fas 9.
+
+Remsorna är fortfarande `utkast`. Statusen `granskad` sätts först i fas 9.
