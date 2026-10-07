@@ -1,0 +1,45 @@
+{
+  "id": "hogt-blodtryck",
+  "title": "Högt blodtryck",
+  "background": "Man, 58 år, med obehandlat högt blodtryck. Arbetsprovet ska bedöma hans arbetsförmåga.",
+  "baseline": {
+    "stripId": "normal-1",
+    "hr": 72,
+    "sbp": 160,
+    "dbp": 95
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 200,
+      "stripId": "normal-4",
+      "hr": 90,
+      "sbp": 185,
+      "dbp": 100
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 380,
+      "stripId": "skankelblock-nytt-2",
+      "hr": 98,
+      "sbp": 210,
+      "dbp": 105,
+      "findingId": "skankelblock-nytt"
+    },
+    {
+      "phase": "belastning",
+      "watt": 125,
+      "timeSec": 500,
+      "stripId": "skankelblock-nytt-1",
+      "hr": 104,
+      "sbp": 260,
+      "dbp": 120,
+      "findingId": "hypertensiv-reaktion"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

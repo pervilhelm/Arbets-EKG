@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { findingById, findings, protocol, sources } from "./index";
+import { cases, findingById, findings, protocol, sources } from "./index";
+import { ECG_CATEGORIES } from "./schema";
+
 
 const idsWithAction = (action: string) =>
   findings
@@ -52,5 +54,22 @@ describe("bundled content", () => {
   it("loads protocol and sources", () => {
     expect(protocol).toMatchObject({ startW: 25, stepW: 25, stepSec: 120, recoveryMinSec: 360 });
     expect(sources.map((s) => s.id)).toEqual(["aha-2013", "mitdb", "incartdb", "ptb-xl"]);
+  });
+
+  it("covers the case requirements in PLAN.md", () => {
+    const steps = cases.flatMap((c) => c.steps);
+    const covered = new Set(steps.map((s) => s.findingId));
+    const ecgFindings = findings.filter((f) => ECG_CATEGORIES.includes(f.category));
+    expect(cases).toHaveLength(6);
+    for (const f of ecgFindings) expect(covered, f.id).toContain(f.id);
+    const bpOrSymptom = findings.filter(
+      (f) => ["blodtryck", "symtom"].includes(f.category) && covered.has(f.id),
+    );
+    expect(bpOrSymptom.length).toBeGreaterThanOrEqual(2);
+    expect(steps.some((s) => s.phase === "aterhamtning")).toBe(true);
+    const withGreen = cases.filter((c) =>
+      c.steps.some((s) => s.findingId && findingById.get(s.findingId)?.action === "fortsatt"),
+    );
+    expect(withGreen.length).toBeGreaterThanOrEqual(cases.length / 2);
   });
 });

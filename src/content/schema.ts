@@ -2,6 +2,8 @@ import { z } from "zod";
 
 export const Action = z.enum(["avbryt", "overvag", "fortsatt"]);
 export const Category = z.enum(["arytmi", "overledning", "ischemi", "blodtryck", "symtom", "ovrigt"]);
+/** Categories that are seen on the ECG and therefore need ECG examples. */
+export const ECG_CATEGORIES: readonly z.infer<typeof Category>[] = ["arytmi", "overledning", "ischemi"];
 const Id = z.string().regex(/^[a-z0-9-]+$/);
 const IsoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 
@@ -84,24 +86,27 @@ export const Strip = z.object({
   review: Review,
 });
 
-export const ScenarioEvent = z.object({
-  atSec: z.number().min(0), // seconds from the start of the phase
+const Bpm = z.number().int().positive();
+const Mmhg = z.number().int().positive();
+
+export const CaseStep = z.object({
   phase: z.enum(["belastning", "aterhamtning"]),
-  presetId: Id.optional(),
-  vitals: z.object({ hr: z.number(), sbp: z.number(), dbp: z.number() }).partial().optional(),
-  symptom: z.string().optional(), // "Patienten säger: ..."
-  findingId: Id.optional(), // drives the assessment
+  watt: z.number().int().min(0), // load during the step, follows protocol.json under load
+  timeSec: z.number().int().min(0), // seconds from the start of the phase
+  stripId: Id, // a real 12-lead ECG
+  hr: Bpm,
+  sbp: Mmhg,
+  dbp: Mmhg,
+  symptom: z.string().optional(), // shown as "Patienten säger: ..."
+  findingId: Id.optional(), // drives the assessment; absent means nothing to act on
 });
 
-export const Scenario = z.object({
+export const Case = z.object({
   id: Id,
   title: z.string(),
-  patient: z.string(), // 1 to 2 sentences of background
-  baseline: z.object({ hr: z.number(), sbp: z.number(), dbp: z.number(), presetId: Id }),
-  loadDurationSec: z.number(), // length of the load phase if nobody stops the test
-  events: z.array(ScenarioEvent).min(1),
-  responseWindowSec: z.number().default(15),
-  debrief: z.string(),
+  background: z.string(), // 1 to 2 sentences
+  baseline: z.object({ stripId: Id, hr: Bpm, sbp: Mmhg, dbp: Mmhg }),
+  steps: z.array(CaseStep).min(3).max(5),
   review: Review,
 });
 
@@ -163,8 +168,8 @@ export type SourceRef = z.infer<typeof SourceRef>;
 export type Finding = z.infer<typeof Finding>;
 export type EcgPreset = z.infer<typeof EcgPreset>;
 export type Strip = z.infer<typeof Strip>;
-export type ScenarioEvent = z.infer<typeof ScenarioEvent>;
-export type Scenario = z.infer<typeof Scenario>;
+export type CaseStep = z.infer<typeof CaseStep>;
+export type Case = z.infer<typeof Case>;
 export type Checklist = z.infer<typeof Checklist>;
 export type GuideStep = z.infer<typeof GuideStep>;
 export type Guide = z.infer<typeof Guide>;

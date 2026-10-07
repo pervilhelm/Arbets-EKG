@@ -1,0 +1,47 @@
+{
+  "id": "efter-infarkt",
+  "title": "Extraslag efter hjärtinfarkt",
+  "background": "Man, 67 år, som hade en hjärtinfarkt för ett år sedan. Arbetsprovet ska visa hur han tål belastning.",
+  "baseline": {
+    "stripId": "normal-3",
+    "hr": 70,
+    "sbp": 135,
+    "dbp": 85
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 200,
+      "stripId": "ves-enstaka-3",
+      "hr": 85,
+      "sbp": 150,
+      "dbp": 85,
+      "findingId": "ves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 420,
+      "stripId": "ves-trioler-3",
+      "hr": 110,
+      "sbp": 170,
+      "dbp": 85,
+      "findingId": "ves-trioler"
+    },
+    {
+      "phase": "belastning",
+      "watt": 125,
+      "timeSec": 540,
+      "stripId": "vt-ihallande-1",
+      "hr": 185,
+      "sbp": 115,
+      "dbp": 70,
+      "symptom": "Jag blir så konstig i huvudet.",
+      "findingId": "vt-ihallande"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

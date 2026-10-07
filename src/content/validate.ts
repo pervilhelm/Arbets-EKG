@@ -1,15 +1,16 @@
 import { z } from "zod";
 import {
+  Case,
   Checklist,
   EcgPreset,
   Finding,
   Guide,
   Protocol,
   Review,
-  Scenario,
   Source,
   Strip,
-  type Category,
+  ECG_CATEGORIES,
+  type Action,
 } from "./schema";
 
 export type ContentFile = { file: string; data: unknown };
@@ -18,7 +19,7 @@ export type ContentInput = {
   findings: ContentFile[];
   ecgPresets: ContentFile[];
   strips: ContentFile[];
-  scenarios: ContentFile[];
+  cases: ContentFile[];
   checklists: ContentFile[];
   guide?: ContentFile | null;
   protocol: ContentFile | null;
@@ -29,7 +30,7 @@ export type ValidationError = { file: string; field: string; message: string };
 
 export type ValidateOptions = { strict?: boolean };
 
-const ECG_REQUIRED: Category[] = ["arytmi", "overledning", "ischemi"];
+const SEVERITY: Record<Action, number> = { fortsatt: 0, overvag: 1, avbryt: 2 };
 
 type Parsed<T> = { file: string; value: T };
 
@@ -64,7 +65,7 @@ export function validateContent(input: ContentInput, options: ValidateOptions = 
   const findings = parseAll(input.findings, Finding);
   const presets = parseAll(input.ecgPresets, EcgPreset);
   const strips = parseAll(input.strips, Strip);
-  const scenarios = parseAll(input.scenarios, Scenario);
+  const cases = parseAll(input.cases, Case);
   const checklists = parseAll(input.checklists, Checklist);
 
   const protocol = input.protocol ? parseAll([input.protocol], Protocol) : [];
@@ -95,7 +96,7 @@ export function validateContent(input: ContentInput, options: ValidateOptions = 
   const findingIds = uniqueIds("fynd", findings);
   const presetIds = uniqueIds("preset", presets);
   const stripIds = uniqueIds("remsa", strips);
-  uniqueIds("scenario", scenarios);
+  uniqueIds("fall", cases);
   uniqueIds("checklista", checklists);
   const sourceIds = uniqueIds("käll", sources);
 
@@ -113,7 +114,7 @@ export function validateContent(input: ContentInput, options: ValidateOptions = 
     f.sources.forEach((s, i) => ref(file, `sources[${i}].sourceId`, s.sourceId, sourceIds, "käll"));
 
     // Rule 3: ECG categories must have a synthetic preset.
-    if (ECG_REQUIRED.includes(f.category) && !f.ecg?.presetId) {
+    if (ECG_CATEGORIES.includes(f.category) && !f.ecg?.presetId) {
       push(file, "ecg.presetId", `krävs för kategorin "${f.category}"`);
     }
   }
@@ -130,20 +131,59 @@ export function validateContent(input: ContentInput, options: ValidateOptions = 
         push(file, "citation", `skiljer sig från sources.json för "${s.dataset}"`);
     }
   }
+  const stripById = new Map(strips.map((s) => [s.value.id, s.value]));
+  const findingById = new Map(findings.map((f) => [f.value.id, f.value]));
+  const twelveLead = (file: string, field: string, id: string) => {
+    const strip = stripById.get(id);
+    if (strip && Object.keys(strip.leads).length !== 12)
+      push(file, field, `remsan "${id}" har inte 12 avledningar`);
+  };
+
   for (const { file, value: g } of guide) {
     g.steps.forEach((step, i) => {
       ref(file, `steps[${i}].stripId`, step.stripId, stripIds, "remsa");
       step.findingIds.forEach((id, j) => ref(file, `steps[${i}].findingIds[${j}]`, id, findingIds, "fynd"));
-      const strip = strips.find((x) => x.value.id === step.stripId)?.value;
-      if (strip && Object.keys(strip.leads).length !== 12)
-        push(file, `steps[${i}].stripId`, `remsan "${step.stripId}" har inte 12 avledningar`);
+      twelveLead(file, `steps[${i}].stripId`, step.stripId);
     });
   }
-  for (const { file, value: s } of scenarios) {
-    ref(file, "baseline.presetId", s.baseline.presetId, presetIds, "preset");
-    s.events.forEach((e, i) => {
-      ref(file, `events[${i}].presetId`, e.presetId, presetIds, "preset");
-      ref(file, `events[${i}].findingId`, e.findingId, findingIds, "fynd");
+  const p = protocol[0]?.value;
+  for (const { file, value: c } of cases) {
+    ref(file, "baseline.stripId", c.baseline.stripId, stripIds, "remsa");
+    twelveLead(file, "baseline.stripId", c.baseline.stripId);
+    if (stripById.get(c.baseline.stripId)?.findingId)
+      push(file, "baseline.stripId", "utgångs-EKG:t ska vara ett normalt EKG");
+
+    c.steps.forEach((step, i) => {
+      const at = (field: string) => `steps[${i}].${field}`;
+      ref(file, at("stripId"), step.stripId, stripIds, "remsa");
+      ref(file, at("findingId"), step.findingId, findingIds, "fynd");
+      twelveLead(file, at("stripId"), step.stripId);
+
+      // The load follows the protocol; recovery is at most the start load.
+      if (p && step.phase === "belastning") {
+        const watt = p.startW + Math.floor(step.timeSec / p.stepSec) * p.stepW;
+        if (step.watt !== watt)
+          push(file, at("watt"), `ska vara ${watt} W vid ${step.timeSec} s enligt protokollet`);
+      }
+      if (p && step.phase === "aterhamtning" && step.watt > p.startW)
+        push(file, at("watt"), `återhämtning får vara högst ${p.startW} W`);
+
+      const prev = c.steps[i - 1];
+      if (prev && prev.phase === "aterhamtning" && step.phase === "belastning")
+        push(file, at("phase"), "belastning kan inte komma efter återhämtning");
+      else if (prev && prev.phase === step.phase && step.timeSec <= prev.timeSec)
+        push(file, at("timeSec"), "stegen ska komma i tidsordning");
+
+      // The ECG must not call for a stronger action than the step is assessed by.
+      const stepAction = step.findingId ? findingById.get(step.findingId)?.action : undefined;
+      const stripFinding = stripById.get(step.stripId)?.findingId;
+      const stripAction = stripFinding ? findingById.get(stripFinding)?.action : undefined;
+      if (stripAction && SEVERITY[stripAction] > SEVERITY[stepAction ?? "fortsatt"])
+        push(file, at("findingId"), `EKG:t visar "${stripFinding}", som kräver en starkare åtgärd än steget`);
+
+      // An abort ends the case, so a later step could never be played.
+      if (stepAction === "avbryt" && i < c.steps.length - 1)
+        push(file, at("findingId"), "ett avbrottsfynd måste ligga i sista steget");
     });
   }
   for (const { file, value: c } of checklists) {
@@ -158,7 +198,7 @@ export function validateContent(input: ContentInput, options: ValidateOptions = 
     ...findings,
     ...presets,
     ...strips,
-    ...scenarios,
+    ...cases,
     ...checklists,
     ...guide,
     ...protocol,

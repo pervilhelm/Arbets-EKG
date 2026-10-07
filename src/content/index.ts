@@ -1,7 +1,7 @@
 // Loads all content at build time. Files are bundled into the app, so they are
 // precached by the service worker and available offline.
 import { z } from "zod";
-import { Checklist, EcgPreset, Finding, Guide, Protocol, Scenario, Source } from "./schema";
+import { Case, Checklist, EcgPreset, Finding, Guide, Protocol, Source } from "./schema";
 
 type JsonModules = Record<string, unknown>;
 
@@ -13,7 +13,7 @@ const presetFiles: JsonModules = import.meta.glob("/content/ecg-presets/*.json",
   eager: true,
   import: "default",
 });
-const scenarioFiles: JsonModules = import.meta.glob("/content/scenarios/*.json", {
+const caseFiles: JsonModules = import.meta.glob("/content/cases/*.json", {
   eager: true,
   import: "default",
 });
@@ -58,7 +58,8 @@ export const findings: Finding[] = parseAll(Finding, findingFiles);
 export const findingById: ReadonlyMap<string, Finding> = new Map(findings.map((f) => [f.id, f]));
 export const ecgPresets: EcgPreset[] = parseAll(EcgPreset, presetFiles);
 export const presetById: ReadonlyMap<string, EcgPreset> = new Map(ecgPresets.map((p) => [p.id, p]));
-export const scenarios: Scenario[] = parseAll(Scenario, scenarioFiles);
+export const cases: Case[] = parseAll(Case, caseFiles);
+export const caseById: ReadonlyMap<string, Case> = new Map(cases.map((c) => [c.id, c]));
 export const checklists: Checklist[] = parseAll(Checklist, checklistFiles);
 export const guide: Guide = parseOne(Guide, guideFile);
 export const protocol: Protocol = parseOne(Protocol, protocolFile);

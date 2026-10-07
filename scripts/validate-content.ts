@@ -38,7 +38,7 @@ const input = {
   findings: readDir("content/findings"),
   ecgPresets: readDir("content/ecg-presets"),
   strips: readDir("public/strips"),
-  scenarios: readDir("content/scenarios"),
+  cases: readDir("content/cases"),
   checklists: readDir("content/checklists"),
   guide: readOptional("content/guide.json"),
   protocol: readOptional("content/protocol.json"),

@@ -1,0 +1,46 @@
+{
+  "id": "yrsel",
+  "title": "Yrsel och trötthet",
+  "background": "Kvinna, 72 år, med återkommande yrsel och trötthet. Utreds för om pulsen ökar som den ska vid ansträngning.",
+  "baseline": {
+    "stripId": "normal-2",
+    "hr": 66,
+    "sbp": 130,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 25,
+      "timeSec": 100,
+      "stripId": "normal-4",
+      "hr": 84,
+      "sbp": 140,
+      "dbp": 80
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 250,
+      "stripId": "bradyarytmi-2",
+      "hr": 50,
+      "sbp": 135,
+      "dbp": 80,
+      "symptom": "Jag känner mig lite matt.",
+      "findingId": "bradyarytmi"
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 330,
+      "stripId": "av-block-2-3-2",
+      "hr": 38,
+      "sbp": 120,
+      "dbp": 75,
+      "findingId": "av-block-2-3"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

@@ -5,8 +5,11 @@ import { ActionListPage } from "./features/lookup/ActionListPage";
 import { FindingPage } from "./features/lookup/FindingPage";
 import { GuidePage } from "./features/guide/GuidePage";
 import { LookupHomePage } from "./features/lookup/LookupHomePage";
+import { CaseListPage } from "./practice/CaseListPage";
+import { CasePage } from "./practice/CasePage";
+import { PracticeHomePage } from "./practice/PracticeHomePage";
+import { QuizPage } from "./practice/QuizPage";
 import { ReviewPage } from "./review/ReviewPage";
-import { SimulatorListPage } from "./simulator/SimulatorListPage";
 import { AppShell } from "./ui/AppShell";
 
 export const router = createBrowserRouter(
@@ -17,7 +20,10 @@ export const router = createBrowserRouter(
         { index: true, element: <LookupHomePage /> },
         { path: "uppslag/:action", element: <ActionListPage /> },
         { path: "fynd/:id", element: <FindingPage /> },
-        { path: "simulator", element: <SimulatorListPage /> },
+        { path: "ova", element: <PracticeHomePage /> },
+        { path: "ova/quiz", element: <QuizPage /> },
+        { path: "ova/fall", element: <CaseListPage /> },
+        { path: "ova/fall/:id", element: <CasePage /> },
         { path: "repetera", element: <ReviewPage /> },
         { path: "tolka", element: <GuidePage /> },
         { path: "om", element: <AboutPage /> },

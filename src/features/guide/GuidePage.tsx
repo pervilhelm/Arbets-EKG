@@ -1,24 +1,8 @@
-import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router";
 import { findingById, guide } from "../../content";
 import { EcgStrip } from "../../ecg/EcgStrip";
-import { loadStrip, type LoadedStrip } from "../../ecg/strips";
+import { useStrip } from "../../ecg/useStrip";
 import { Page } from "../../ui/Page";
-
-function useStrip(id: string): LoadedStrip | "error" | null {
-  const [state, setState] = useState<{ id: string; value: LoadedStrip | "error" }>();
-  useEffect(() => {
-    let live = true;
-    loadStrip(id).then(
-      (value) => live && setState({ id, value }),
-      () => live && setState({ id, value: "error" }),
-    );
-    return () => {
-      live = false;
-    };
-  }, [id]);
-  return state?.id === id ? state.value : null;
-}
 
 export function GuidePage() {
   const [params, setParams] = useSearchParams();

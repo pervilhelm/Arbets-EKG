@@ -17,7 +17,7 @@ Appen lär sjuksköterskor att **tolka EKG och känna igen arytmier under arbets
 - [x] Fas 5: riktiga 12-avlednings-EKG
 - [x] Fas 6: fyndkort och uppslag
 - [x] Fas 7: tolkningsguide
-- [ ] Fas 8: quiz och fallövningar
+- [x] Fas 8: quiz och fallövningar
 - [ ] Fas 9: granskning och release
 
 ## Arbetssätt (gäller varje session)

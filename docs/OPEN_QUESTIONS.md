@@ -52,3 +52,14 @@ Läggs till först efter klinikens PM och granskarens svar.
 - De normala EKG:na `normal-1`–`normal-4` behålls. Granskaren bekräftar dem i fas 9.
 
 Remsorna är fortfarande `utkast`. Statusen `granskad` sätts först i fas 9.
+
+## Quiz och fallövningar (fas 8)
+
+| Fråga                                                                                                                                                                                                                                                                | Vem svarar           | Källa |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----- |
+| De sex fallen i `content/cases/` (bakgrund, puls, BT, symtomrepliker och vilket fynd varje steg bedöms efter) är utkast skrivna av Claude Code och behöver granskas.                                                                                                 | Granskaren           | Fas 8 |
+| EKG:n i fallen är vilo-EKG. Pulsen i steget ligger nära remsans frekvens där det går, men inte alltid (t.ex. `puls-85-procent` visas med `sinustakykardi-1`, cirka 100/min, medan steget anger 134/min). Räcker det att appen säger att puls och BT hör till fallet? | Oscar och granskaren | Fas 8 |
+| Planen anger inte vad timeout betyder för andra fynd än `avbryt`. Appen räknar timeout som _Fortsätt_ (ingen agerade): rätt vid inget fynd eller grönt fynd, _missat fynd_ vid `overvag`, _missat avbrott_ vid `avbryt`.                                             | Oscar                | Fas 8 |
+| Ett steg med `overvag` där användaren väljer _Fortsätt_ kallas _missat fynd_ i genomgången (planen namnger inte utfallet).                                                                                                                                           | Oscar                | Fas 8 |
+| _Avbryt testet_ avslutar fallet direkt, även när det är rätt vid `overvag`. Steg efter det visas i genomgången som _Spelades inte_. Valideringen kräver därför att ett avbrottsfynd ligger i fallets sista steg.                                                     | Oscar                | Fas 8 |
+| Fliken _Repetera_ i bottenmenyn är fortfarande tom. Quizet tar redan tillbaka felbesvarade frågor oftare. Ska fliken tas bort eller få innehåll?                                                                                                                     | Oscar                | Fas 8 |

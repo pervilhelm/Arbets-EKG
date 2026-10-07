@@ -1,0 +1,58 @@
+{
+  "id": "tryck-i-brostet",
+  "title": "Tryck i bröstet",
+  "background": "Man, 61 år, får tryck i bröstet i uppförsbackar. Han står på betablockerare.",
+  "baseline": {
+    "stripId": "normal-2",
+    "hr": 64,
+    "sbp": 140,
+    "dbp": 85
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 180,
+      "stripId": "normal-1",
+      "hr": 72,
+      "sbp": 150,
+      "dbp": 85
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 300,
+      "stripId": "st-sankning-1",
+      "hr": 75,
+      "sbp": 160,
+      "dbp": 85,
+      "symptom": "Det börjar trycka lite i bröstet.",
+      "findingId": "st-sankning"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 400,
+      "stripId": "st-sankning-1",
+      "hr": 80,
+      "sbp": 165,
+      "dbp": 90,
+      "symptom": "Trycket blir värre ju mer jag trampar.",
+      "findingId": "brostsmarta-okande"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 470,
+      "stripId": "st-hojning-1",
+      "hr": 75,
+      "sbp": 150,
+      "dbp": 85,
+      "symptom": "Nu gör det riktigt ont.",
+      "findingId": "st-hojning"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "hjartklappning",
+  "title": "Hjärtklappning vid ansträngning",
+  "background": "Kvinna, 54 år, utreds för hjärtklappning som kommer vid ansträngning. Inga kända hjärtsjukdomar.",
+  "baseline": {
+    "stripId": "normal-1",
+    "hr": 72,
+    "sbp": 125,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 150,
+      "stripId": "normal-4",
+      "hr": 88,
+      "sbp": 140,
+      "dbp": 80
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 330,
+      "stripId": "sves-enstaka-3",
+      "hr": 100,
+      "sbp": 155,
+      "dbp": 80,
+      "findingId": "sves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 430,
+      "stripId": "svt-3",
+      "hr": 150,
+      "sbp": 165,
+      "dbp": 85,
+      "symptom": "Nu slår det jättefort, precis som hemma.",
+      "findingId": "svt"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 90,
+      "stripId": "sinustakykardi-1",
+      "hr": 105,
+      "sbp": 145,
+      "dbp": 80,
+      "findingId": "sinustakykardi"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

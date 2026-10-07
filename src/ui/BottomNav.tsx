@@ -30,7 +30,7 @@ const ITEMS: NavItem[] = [
       </>,
     ),
   },
-  { to: "/simulator", label: "Simulator", icon: icon(<path d="M2 12h5l2-5 4 12 3-7h6" />) },
+  { to: "/ova", label: "Öva", icon: icon(<path d="M2 12h5l2-5 4 12 3-7h6" />) },
   {
     to: "/repetera",
     label: "Repetera",

@@ -41,7 +41,7 @@ function baseInput(): ContentInput {
       },
     ],
     strips: [],
-    scenarios: [],
+    cases: [],
     checklists: [],
     protocol: {
       file: "content/protocol.json",
@@ -84,20 +84,27 @@ describe("validateContent", () => {
     expect(formatError(errors[0])).toContain('okänt fynd-id "finns-inte"');
   });
 
-  it("checks references from presets, scenarios and checklists", () => {
+  it("checks references from presets, cases and checklists", () => {
     const input = baseInput();
     input.ecgPresets[0].data = { id: "b", findingId: "saknas", lead: "II", rhythm, review: draft };
-    input.scenarios = [
+    input.cases = [
       {
-        file: "content/scenarios/s.json",
+        file: "content/cases/s.json",
         data: {
           id: "s",
           title: "S",
-          patient: "P",
-          baseline: { hr: 70, sbp: 130, dbp: 80, presetId: "saknas" },
-          loadDurationSec: 600,
-          events: [{ atSec: 0, phase: "belastning", findingId: "saknas" }],
-          debrief: "D",
+          background: "B",
+          baseline: { stripId: "saknas", hr: 70, sbp: 130, dbp: 80 },
+          steps: [0, 120, 240].map((timeSec, i) => ({
+            phase: "belastning",
+            watt: 25 + i * 25,
+            timeSec,
+            stripId: "saknas",
+            hr: 90,
+            sbp: 150,
+            dbp: 80,
+            ...(i === 0 ? { findingId: "saknas" } : {}),
+          })),
           review: draft,
         },
       },
@@ -116,8 +123,11 @@ describe("validateContent", () => {
     ];
     expect(validateContent(input).map((e) => `${e.file} ${e.field}`)).toEqual([
       "content/ecg-presets/b.json findingId",
-      "content/scenarios/s.json baseline.presetId",
-      "content/scenarios/s.json events[0].findingId",
+      "content/cases/s.json baseline.stripId",
+      "content/cases/s.json steps[0].stripId",
+      "content/cases/s.json steps[0].findingId",
+      "content/cases/s.json steps[1].stripId",
+      "content/cases/s.json steps[2].stripId",
       "content/checklists/c.json items[0].sourceRef.sourceId",
     ]);
   });
@@ -226,5 +236,103 @@ describe("guide validation", () => {
     const msgs = validateContent(input).map((e) => e.message);
     expect(msgs).toContain('okänt fynd-id "nope"');
     expect(msgs).toContain('remsan "x" har inte 12 avledningar');
+  });
+});
+
+describe("case validation", () => {
+  const strip = (id: string, findingId?: string) => ({
+    file: `public/strips/${id}.json`,
+    data: {
+      id,
+      ...(findingId ? { findingId } : {}),
+      dataset: "ptb-xl",
+      record: "1",
+      startSec: 0,
+      fs: 250,
+      leads: Object.fromEntries(Array.from({ length: 12 }, (_, i) => [`L${i}`, [0]])),
+      license: "l",
+      citation: "c",
+      review: draft,
+    },
+  });
+  const step = (over: Record<string, unknown> = {}) => ({
+    phase: "belastning",
+    watt: 25,
+    timeSec: 60,
+    stripId: "normal-1",
+    hr: 90,
+    sbp: 150,
+    dbp: 80,
+    ...over,
+  });
+  const messages = (steps: unknown[], baselineStrip = "normal-1") => {
+    const input = baseInput();
+    input.findings.push(
+      { file: "content/findings/stopp.json", data: finding("stopp", { action: "avbryt" }) },
+      { file: "content/findings/varning.json", data: finding("varning", { action: "overvag" }) },
+    );
+    input.strips = [strip("normal-1"), strip("stopp-1", "stopp")];
+    input.sources!.data = [
+      { id: "aha-2013", title: "AHA", url: "https://example.org/aha" },
+      { id: "ptb-xl", title: "P", url: "https://example.org/p", license: "l", citation: "c" },
+    ];
+    input.cases = [
+      {
+        file: "content/cases/c.json",
+        data: {
+          id: "c",
+          title: "C",
+          background: "B",
+          baseline: { stripId: baselineStrip, hr: 70, sbp: 130, dbp: 80 },
+          steps,
+          review: draft,
+        },
+      },
+    ];
+    return validateContent(input).map((e) => `${e.field}: ${e.message}`);
+  };
+  const valid = [
+    step(),
+    step({ watt: 75, timeSec: 300, findingId: "varning" }),
+    step({ phase: "aterhamtning", watt: 0, timeSec: 60 }),
+  ];
+
+  it("accepts a valid case", () => {
+    expect(messages(valid)).toEqual([]);
+  });
+
+  it("requires the load to follow the protocol", () => {
+    expect(messages([step({ watt: 50 }), ...valid.slice(1)])).toEqual([
+      "steps[0].watt: ska vara 25 W vid 60 s enligt protokollet",
+    ]);
+    expect(messages([...valid.slice(0, 2), step({ phase: "aterhamtning", watt: 50 })])).toEqual([
+      "steps[2].watt: återhämtning får vara högst 25 W",
+    ]);
+  });
+
+  it("requires steps in time order", () => {
+    expect(messages([valid[0], valid[2], step({ watt: 75, timeSec: 300 })])).toContain(
+      "steps[2].phase: belastning kan inte komma efter återhämtning",
+    );
+    expect(messages([valid[1], valid[0], valid[2]])).toContain(
+      "steps[1].timeSec: stegen ska komma i tidsordning",
+    );
+  });
+
+  it("rejects an ECG that calls for a stronger action than the step", () => {
+    expect(
+      messages([
+        valid[0],
+        step({ watt: 75, timeSec: 300, stripId: "stopp-1", findingId: "varning" }),
+        valid[2],
+      ]),
+    ).toEqual(['steps[1].findingId: EKG:t visar "stopp", som kräver en starkare åtgärd än steget']);
+  });
+
+  it("requires an abort finding to be the last step and a normal baseline", () => {
+    expect(messages([step({ findingId: "stopp" }), ...valid.slice(1)], "stopp-1")).toEqual([
+      "baseline.stripId: utgångs-EKG:t ska vara ett normalt EKG",
+      "steps[0].findingId: ett avbrottsfynd måste ligga i sista steget",
+    ]);
   });
 });

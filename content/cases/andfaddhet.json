@@ -1,0 +1,55 @@
+{
+  "id": "andfaddhet",
+  "title": "Andfåddhet",
+  "background": "Kvinna, 66 år, blir andfådd vid ansträngning. Inga kända hjärtsjukdomar.",
+  "baseline": {
+    "stripId": "normal-4",
+    "hr": 84,
+    "sbp": 130,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 230,
+      "stripId": "sinustakykardi-1",
+      "hr": 102,
+      "sbp": 150,
+      "dbp": 80
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 470,
+      "stripId": "ves-enstaka-3",
+      "hr": 120,
+      "sbp": 170,
+      "dbp": 85,
+      "findingId": "ves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 150,
+      "timeSec": 650,
+      "stripId": "sinustakykardi-1",
+      "hr": 134,
+      "sbp": 185,
+      "dbp": 85,
+      "findingId": "puls-85-procent"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 120,
+      "stripId": "ves-multifokala-3",
+      "hr": 100,
+      "sbp": 160,
+      "dbp": 80,
+      "findingId": "ves-multifokala"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}
