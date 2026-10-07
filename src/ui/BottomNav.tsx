@@ -44,14 +44,12 @@ const ITEMS: NavItem[] = [
     ),
   },
   {
-    to: "/checklistor",
-    label: "Checklistor",
+    to: "/tolka",
+    label: "Tolka",
     icon: icon(
       <>
-        <path d="m3 6 2 2 3-3" />
-        <path d="m3 14 2 2 3-3" />
-        <path d="M12 7h9" />
-        <path d="M12 15h9" />
+        <path d="M4 5h16v14H4z" />
+        <path d="M4 12h3l2-4 3 8 2-4h6" />
       </>,
     ),
   },

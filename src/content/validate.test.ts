@@ -180,3 +180,51 @@ describe("validateContent", () => {
     expect(strictErrors.every((e) => e.field === "review.status")).toBe(true);
   });
 });
+
+describe("guide validation", () => {
+  const step = (over: Record<string, unknown> = {}) => ({
+    id: "s",
+    title: "Steg",
+    explanation: "En mening.",
+    underLoad: "Titta.",
+    stripId: "x",
+    findingIds: ["a"],
+    ...over,
+  });
+  const withGuide = (steps: unknown[]) => {
+    const input = baseInput();
+    input.guide = { file: "content/guide.json", data: { steps, review: draft } };
+    return input;
+  };
+  const strip = (leads: number) => ({
+    file: "public/strips/x.json",
+    data: {
+      id: "x",
+      dataset: "mitdb",
+      record: "1",
+      startSec: 0,
+      fs: 250,
+      leads: Object.fromEntries(Array.from({ length: leads }, (_, i) => [`L${i}`, [0]])),
+      license: "l",
+      citation: "c",
+      review: draft,
+    },
+  });
+
+  it("rejects explanations over five sentences", () => {
+    const input = withGuide(Array.from({ length: 7 }, () => step({ explanation: "A. B. C. D. E. F." })));
+    expect(validateContent(input).some((e) => e.message.includes("högst 5 meningar"))).toBe(true);
+  });
+
+  it("requires 12-lead strips and known finding ids", () => {
+    const input = withGuide(Array.from({ length: 7 }, () => step({ findingIds: ["nope"] })));
+    input.strips = [strip(1)];
+    input.sources!.data = [
+      { id: "aha-2013", title: "AHA", url: "https://example.org/aha" },
+      { id: "mitdb", title: "M", url: "https://example.org/m", license: "l", citation: "c" },
+    ];
+    const msgs = validateContent(input).map((e) => e.message);
+    expect(msgs).toContain('okänt fynd-id "nope"');
+    expect(msgs).toContain('remsan "x" har inte 12 avledningar');
+  });
+});

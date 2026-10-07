@@ -1,7 +1,7 @@
 // Loads all content at build time. Files are bundled into the app, so they are
 // precached by the service worker and available offline.
 import { z } from "zod";
-import { Checklist, EcgPreset, Finding, Protocol, Scenario, Source } from "./schema";
+import { Checklist, EcgPreset, Finding, Guide, Protocol, Scenario, Source } from "./schema";
 
 type JsonModules = Record<string, unknown>;
 
@@ -18,6 +18,10 @@ const scenarioFiles: JsonModules = import.meta.glob("/content/scenarios/*.json",
   import: "default",
 });
 const checklistFiles: JsonModules = import.meta.glob("/content/checklists/*.json", {
+  eager: true,
+  import: "default",
+});
+const guideFile: JsonModules = import.meta.glob("/content/guide.json", {
   eager: true,
   import: "default",
 });
@@ -56,5 +60,6 @@ export const ecgPresets: EcgPreset[] = parseAll(EcgPreset, presetFiles);
 export const presetById: ReadonlyMap<string, EcgPreset> = new Map(ecgPresets.map((p) => [p.id, p]));
 export const scenarios: Scenario[] = parseAll(Scenario, scenarioFiles);
 export const checklists: Checklist[] = parseAll(Checklist, checklistFiles);
+export const guide: Guide = parseOne(Guide, guideFile);
 export const protocol: Protocol = parseOne(Protocol, protocolFile);
 export const sources: Source[] = parseOne(z.array(Source), sourcesFile);

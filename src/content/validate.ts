@@ -3,6 +3,7 @@ import {
   Checklist,
   EcgPreset,
   Finding,
+  Guide,
   Protocol,
   Review,
   Scenario,
@@ -19,6 +20,7 @@ export type ContentInput = {
   strips: ContentFile[];
   scenarios: ContentFile[];
   checklists: ContentFile[];
+  guide?: ContentFile | null;
   protocol: ContentFile | null;
   sources: ContentFile | null;
 };
@@ -67,6 +69,8 @@ export function validateContent(input: ContentInput, options: ValidateOptions = 
 
   const protocol = input.protocol ? parseAll([input.protocol], Protocol) : [];
   if (!input.protocol) push("content/protocol.json", "", "filen saknas");
+
+  const guide = input.guide ? parseAll([input.guide], Guide) : [];
 
   const sources: Parsed<Source>[] = [];
   if (input.sources) {
@@ -126,6 +130,15 @@ export function validateContent(input: ContentInput, options: ValidateOptions = 
         push(file, "citation", `skiljer sig från sources.json för "${s.dataset}"`);
     }
   }
+  for (const { file, value: g } of guide) {
+    g.steps.forEach((step, i) => {
+      ref(file, `steps[${i}].stripId`, step.stripId, stripIds, "remsa");
+      step.findingIds.forEach((id, j) => ref(file, `steps[${i}].findingIds[${j}]`, id, findingIds, "fynd"));
+      const strip = strips.find((x) => x.value.id === step.stripId)?.value;
+      if (strip && Object.keys(strip.leads).length !== 12)
+        push(file, `steps[${i}].stripId`, `remsan "${step.stripId}" har inte 12 avledningar`);
+    });
+  }
   for (const { file, value: s } of scenarios) {
     ref(file, "baseline.presetId", s.baseline.presetId, presetIds, "preset");
     s.events.forEach((e, i) => {
@@ -147,6 +160,7 @@ export function validateContent(input: ContentInput, options: ValidateOptions = 
     ...strips,
     ...scenarios,
     ...checklists,
+    ...guide,
     ...protocol,
   ];
   for (const { file, value } of reviewed) {

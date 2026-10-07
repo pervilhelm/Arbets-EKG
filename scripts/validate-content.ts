@@ -40,6 +40,7 @@ const input = {
   strips: readDir("public/strips"),
   scenarios: readDir("content/scenarios"),
   checklists: readDir("content/checklists"),
+  guide: readOptional("content/guide.json"),
   protocol: readOptional("content/protocol.json"),
   sources: readOptional("content/sources.json"),
 };

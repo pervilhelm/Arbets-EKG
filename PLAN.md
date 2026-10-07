@@ -16,7 +16,7 @@ Appen lär sjuksköterskor att **tolka EKG och känna igen arytmier under arbets
 - [ ] Fas 0: manuella förutsättningar (Oscar), krävs för fas 9
 - [x] Fas 5: riktiga 12-avlednings-EKG
 - [x] Fas 6: fyndkort och uppslag
-- [ ] Fas 7: tolkningsguide
+- [x] Fas 7: tolkningsguide
 - [ ] Fas 8: quiz och fallövningar
 - [ ] Fas 9: granskning och release
 

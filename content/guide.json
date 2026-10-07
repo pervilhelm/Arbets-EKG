@@ -1,0 +1,63 @@
+{
+  "steps": [
+    {
+      "id": "frekvens",
+      "title": "Frekvens",
+      "explanation": "Räkna QRS-komplexen på rytmremsan och multiplicera med 6 för tio sekunder, eller dela 300 med antalet stora rutor mellan två R-vågor. Normal vilofrekvens är 60–100 slag/min. Under belastning stiger frekvensen gradvis med arbetsbelastningen.",
+      "underLoad": "Frekvensen ska följa belastningen uppåt. Plötsliga hopp, frekvens som inte stiger eller faller under belastning är avvikelser. Jämför med åldersberäknad maxpuls och 85 %-gränsen.",
+      "stripId": "sinustakykardi-1",
+      "findingIds": ["sinustakykardi", "bradyarytmi", "svt", "puls-85-procent"]
+    },
+    {
+      "id": "rytm",
+      "title": "Rytm och regelbundenhet",
+      "explanation": "Titta på avstånden mellan R-vågorna på rytmremsan II. Är de lika långa är rytmen regelbunden. Slag som kommer för tidigt, grupper av slag eller helt oregelbundna avstånd talar för extraslag eller arytmi.",
+      "underLoad": "Enstaka extraslag är vanliga. Notera om de blir fler, kommer i par eller trioler, eller ser olika ut från gång till gång.",
+      "stripId": "ves-enstaka-3",
+      "findingIds": ["ves-enstaka", "ves-trioler", "ves-multifokala", "sves-enstaka"]
+    },
+    {
+      "id": "p-vag",
+      "title": "P-våg",
+      "explanation": "Leta efter en P-våg före varje QRS-komplex, bäst i II och V1. Vid sinusrytm är P-vågen positiv i II och har samma form hela tiden. Saknas P-vågor, eller finns fler P-vågor än QRS-komplex, är rytmen inte vanlig sinusrytm.",
+      "underLoad": "Vid hög frekvens kan P-vågen gömma sig i föregående T-våg. Plötsligt försvunna P-vågor vid snabb regelbunden rytm kan tala för SVT.",
+      "stripId": "normal-1",
+      "findingIds": ["svt", "sves-enstaka"]
+    },
+    {
+      "id": "pr-tid",
+      "title": "PR-tid",
+      "explanation": "PR-tiden mäts från P-vågens början till QRS-komplexets början och är normalt 120–200 ms, alltså 3–5 små rutor. Är den lika lång före varje slag är överledningen stabil. Förlängs den successivt eller faller QRS-komplex bort finns ett AV-block.",
+      "underLoad": "PR-tiden ska bli något kortare med stigande frekvens. Fallande QRS-komplex efter P-vågor, eller P-vågor som inte hör ihop med QRS, ska uppmärksammas direkt.",
+      "stripId": "av-block-2-3-2",
+      "findingIds": ["av-block-2-3"]
+    },
+    {
+      "id": "qrs",
+      "title": "QRS-bredd och form",
+      "explanation": "Normal QRS-bredd är under 120 ms, alltså högst 3 små rutor. Smala komplex kommer från ventrikelns normala ledningssystem. Breda komplex kan bero på skänkelblock eller på att slaget kommer från kammaren.",
+      "underLoad": "Jämför med EKG:t i vila. Nytt skänkelblock eller breda komplex i en snabb rytm ska uppmärksammas. Hållande bred takykardi är VT till motsatsen är bevisad.",
+      "stripId": "skankelblock-nytt-1",
+      "findingIds": ["vt-ihallande", "skankelblock-nytt", "ves-enstaka"]
+    },
+    {
+      "id": "st",
+      "title": "ST-sträcka",
+      "explanation": "ST-sträckan är den plana delen mellan QRS-komplexets slut och T-vågens början. Den ska ligga i nivå med baslinjen. Jämför nivån mot baslinjen i flera avledningar, och notera vilka avledningar som berörs.",
+      "underLoad": "Ny ST-höjning ska leda till avbrott. ST-sänkning som är horisontell eller nedåtlutande kan tala för ischemi och ska leda till övervägande om avbrott. Jämför alltid med vilo-EKG.",
+      "stripId": "st-hojning-1",
+      "findingIds": ["st-hojning", "st-sankning"]
+    },
+    {
+      "id": "t-vag",
+      "title": "T-våg",
+      "explanation": "T-vågen följer ST-sträckan och är normalt positiv i de flesta avledningar utom aVR och ofta V1. Se efter om den är hög och spetsig, tillplattad eller negativ. Förändringar jämfört med vilo-EKG är det viktiga.",
+      "underLoad": "Nya T-vågsförändringar är ett tecken att följa upp tillsammans med symtom och ST-sträckan. De ska aldrig tolkas ensamma.",
+      "stripId": "normal-2",
+      "findingIds": ["st-hojning", "st-sankning"]
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

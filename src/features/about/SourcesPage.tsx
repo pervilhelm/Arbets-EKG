@@ -5,7 +5,7 @@ export function SourcesPage() {
   return (
     <Page title="Källor och licenser">
       <p className="mb-4 text-sm text-slate-700">
-        Fynd, avbrottskriterier och checklistor bygger på riktlinjen nedan. De riktiga EKG-exemplen kommer
+        Fynd, avbrottskriterier och tolkningsguide bygger på riktlinjen nedan. De riktiga EKG-exemplen kommer
         från öppna databaser på PhysioNet och är vilo-EKG, inte arbetsprov. Simulatorn använder alltid
         syntetiska EKG.
       </p>

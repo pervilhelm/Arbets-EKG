@@ -119,6 +119,24 @@ export const Checklist = z.object({
   review: Review,
 });
 
+const MAX_SENTENCES = 5;
+
+export const GuideStep = z.object({
+  id: Id,
+  title: z.string(),
+  explanation: z.string().refine((t) => (t.match(/[.!?](\s|$)/g) ?? []).length <= MAX_SENTENCES, {
+    message: `högst ${MAX_SENTENCES} meningar`,
+  }),
+  underLoad: z.string(), // what to look for during exercise
+  stripId: Id, // a real 12-lead ECG
+  findingIds: z.array(Id),
+});
+
+export const Guide = z.object({
+  steps: z.array(GuideStep).length(7),
+  review: Review,
+});
+
 export const Protocol = z.object({
   startW: z.number(),
   stepW: z.number(),
@@ -148,5 +166,7 @@ export type Strip = z.infer<typeof Strip>;
 export type ScenarioEvent = z.infer<typeof ScenarioEvent>;
 export type Scenario = z.infer<typeof Scenario>;
 export type Checklist = z.infer<typeof Checklist>;
+export type GuideStep = z.infer<typeof GuideStep>;
+export type Guide = z.infer<typeof Guide>;
 export type Protocol = z.infer<typeof Protocol>;
 export type Source = z.infer<typeof Source>;

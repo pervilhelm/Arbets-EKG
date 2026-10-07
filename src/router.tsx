@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import { AboutPage } from "./features/about/AboutPage";
 import { SourcesPage } from "./features/about/SourcesPage";
-import { ChecklistsPage } from "./features/checklists/ChecklistsPage";
 import { ActionListPage } from "./features/lookup/ActionListPage";
 import { FindingPage } from "./features/lookup/FindingPage";
+import { GuidePage } from "./features/guide/GuidePage";
 import { LookupHomePage } from "./features/lookup/LookupHomePage";
 import { ReviewPage } from "./review/ReviewPage";
 import { SimulatorListPage } from "./simulator/SimulatorListPage";
@@ -19,7 +19,7 @@ export const router = createBrowserRouter(
         { path: "fynd/:id", element: <FindingPage /> },
         { path: "simulator", element: <SimulatorListPage /> },
         { path: "repetera", element: <ReviewPage /> },
-        { path: "checklistor", element: <ChecklistsPage /> },
+        { path: "tolka", element: <GuidePage /> },
         { path: "om", element: <AboutPage /> },
         { path: "om/kallor", element: <SourcesPage /> },
         ...(import.meta.env.DEV
