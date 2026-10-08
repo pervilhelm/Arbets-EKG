@@ -1,0 +1,43 @@
+{
+  "id": "formaksflimmer-fladder",
+  "name": "Nytillkommet förmaksflimmer eller förmaksfladder",
+  "aliases": ["FF", "AF", "förmaksflimmer", "förmaksfladder", "fladder", "flimmer", "oregelbunden rytm"],
+  "category": "arytmi",
+  "action": "overvag",
+  "summary": "Förmaken slår kaotiskt (flimmer) eller i en snabb krets (fladder). Kammarfrekvensen kan bli hög och påverka cirkulationen.",
+  "recognize": [
+    "Oregelbundet oregelbundna RR-intervall vid flimmer",
+    "Inga tydliga P-vågor, flimmervågor i baslinjen",
+    "Fladder: sågtandsvågor runt 300/min, ofta tydligast i II, III och aVF",
+    "Smala QRS om inget skänkelblock finns",
+    "Nytt jämfört med vilo-EKG"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "sves-enstaka",
+      "difference": "Vid SVES är grundrytmen sinus med P-vågor mellan extraslagen."
+    },
+    {
+      "findingId": "svt",
+      "difference": "SVT är snabb och regelbunden, flimmer är oregelbundet."
+    },
+    {
+      "findingId": "tekniskt-fel",
+      "difference": "Muskelartefakter kan likna flimmervågor men QRS kommer regelbundet."
+    }
+  ],
+  "todo": "Informera ansvarig läkare enligt klinikens rutin. Följ kammarfrekvens, BT och symtom noga. Läkaren avgör om testet ska avbrytas.",
+  "ecg": {
+    "presetId": "formaksflimmer-fladder",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

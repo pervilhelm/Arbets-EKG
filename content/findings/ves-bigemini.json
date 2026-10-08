@@ -1,0 +1,37 @@
+{
+  "id": "ves-bigemini",
+  "name": "Ventrikulär bigemini",
+  "aliases": ["bigemini", "bigeminism", "VES varannat slag"],
+  "category": "arytmi",
+  "action": "overvag",
+  "summary": "Varannat slag är en VES. Kan öka med belastningen och ge lägre effektiv puls.",
+  "recognize": [
+    "Normalt slag och VES växlar regelbundet",
+    "VES är breda utan P-våg, följs av kompensatorisk paus",
+    "Pulsoximeter eller palpation kan visa halverad puls"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "ves-enstaka",
+      "difference": "Enstaka VES kommer sporadiskt, inte varannat slag."
+    },
+    {
+      "findingId": "ves-trioler",
+      "difference": "Vid icke-ihållande VT kommer tre VES eller fler direkt efter varandra."
+    }
+  ],
+  "todo": "Informera ansvarig läkare enligt klinikens rutin och övervaka EKG noga. Var uppmärksam på ökande antal VES, salvor och symtom.",
+  "ecg": {
+    "presetId": "ves-bigemini",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Relative"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

@@ -16,10 +16,10 @@ test("ett fall spelas till genomgång med rätt bedömning", async ({ page }) =>
   await expect(page.getByRole("img", { name: "Utgångs-EKG med 12 avledningar" })).toBeVisible();
   await page.getByRole("button", { name: "Starta arbetsprovet" }).click();
 
-  await expect(page.getByRole("heading", { name: "Belastning 50 W · 3:20" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Belastning 75 W · 3:20" })).toBeVisible();
   await expect(page.getByRole("img", { name: "Monitor, rytmremsa avledning II" })).toBeVisible();
   await page.getByRole("button", { name: "Fortsätt" }).click();
-  await expect(page.getByRole("heading", { name: "Belastning 100 W · 7:00" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Belastning 125 W · 7:00" })).toBeVisible();
   await page.getByRole("button", { name: "Markera fynd" }).click();
   await expect(page.getByText("Jag blir så konstig i huvudet.")).toBeVisible();
   await page.getByRole("button", { name: "Avbryt testet" }).click();

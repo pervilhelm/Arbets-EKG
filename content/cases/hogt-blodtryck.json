@@ -11,7 +11,7 @@
   "steps": [
     {
       "phase": "belastning",
-      "watt": 50,
+      "watt": 75,
       "timeSec": 200,
       "stripId": "normal-4",
       "hr": 90,
@@ -20,7 +20,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 100,
+      "watt": 125,
       "timeSec": 380,
       "stripId": "skankelblock-nytt-2",
       "hr": 98,
@@ -30,7 +30,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 125,
+      "watt": 150,
       "timeSec": 500,
       "stripId": "skankelblock-nytt-1",
       "hr": 104,

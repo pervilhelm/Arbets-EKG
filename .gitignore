@@ -32,3 +32,4 @@ test-results
 scripts/ecg/.venv
 scripts/ecg/.cache
 __pycache__
+*.pdf

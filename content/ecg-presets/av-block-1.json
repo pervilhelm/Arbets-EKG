@@ -1,0 +1,19 @@
+{
+  "id": "av-block-1",
+  "findingId": "av-block-1",
+  "lead": "II",
+  "rhythm": {
+    "baseHr": 90,
+    "seed": 17,
+    "pattern": [
+      {
+        "kind": "avblock",
+        "type": "1",
+        "sec": 60
+      }
+    ]
+  },
+  "review": {
+    "status": "utkast"
+  }
+}

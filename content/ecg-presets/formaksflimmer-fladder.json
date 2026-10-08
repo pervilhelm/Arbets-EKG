@@ -1,0 +1,19 @@
+{
+  "id": "formaksflimmer-fladder",
+  "findingId": "formaksflimmer-fladder",
+  "lead": "II",
+  "rhythm": {
+    "baseHr": 90,
+    "seed": 11,
+    "pattern": [
+      {
+        "kind": "af",
+        "meanRate": 130,
+        "sec": 60
+      }
+    ]
+  },
+  "review": {
+    "status": "utkast"
+  }
+}

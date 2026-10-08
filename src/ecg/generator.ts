@@ -56,7 +56,12 @@ type Planned = {
 type Window = { start: number; end: number };
 type ArtifactWindow = Window & { type: "muskel" | "baslinje" | "elektrod" };
 
-type Timeline = { planned: Planned[]; fibrillation: Window[]; artifacts: ArtifactWindow[] };
+type Timeline = {
+  planned: Planned[];
+  fibrillation: Window[];
+  ventricularFibrillation: Window[];
+  artifacts: ArtifactWindow[];
+};
 
 function planTimeline(spec: RhythmSpec, durationSec: number, rand: () => number): Timeline {
   const rr0 = 60 / spec.baseHr;
@@ -66,6 +71,7 @@ function planTimeline(spec: RhythmSpec, durationSec: number, rand: () => number)
 
   const planned: Planned[] = [];
   const fibrillation: Window[] = [];
+  const ventricularFibrillation: Window[] = [];
   const artifacts: ArtifactWindow[] = [];
 
   let next = 0.4; // next scheduled sinus QRS onset
@@ -199,6 +205,14 @@ function planTimeline(spec: RhythmSpec, durationSec: number, rand: () => number)
         next = lastQrs + rr;
         break;
       }
+      case "vf": {
+        // Chaotic ventricular activity without QRS complexes or P waves.
+        const start = anchor() + 0.5 * rr0;
+        ventricularFibrillation.push({ start, end: start + seg.sec });
+        next = start + seg.sec + rr0;
+        lastQrs = start + seg.sec;
+        break;
+      }
       case "artifact": {
         // The underlying sinus rhythm continues under the artifact.
         const start = next - 0.2;
@@ -220,7 +234,7 @@ function planTimeline(spec: RhythmSpec, durationSec: number, rand: () => number)
   }
 
   planned.sort((a, b) => a.beat.time - b.beat.time);
-  return { planned, fibrillation, artifacts };
+  return { planned, fibrillation, ventricularFibrillation, artifacts };
 }
 
 // --- Synthesis ---------------------------------------------------------------
@@ -318,6 +332,19 @@ function synthesise(
       let v = 0;
       for (const { f, phase } of waves) v += Math.sin(2 * Math.PI * f * t + phase);
       buf[i] += 0.025 * v * env;
+    }
+  }
+
+  for (const { start, end } of timeline.ventricularFibrillation) {
+    const waves = [0, 1, 2, 3].map(() => ({ f: 3.5 + 3 * rand(), phase: 2 * Math.PI * rand() }));
+    const mod = { f: 0.3 + 0.4 * rand(), phase: 2 * Math.PI * rand() };
+    for (let i = Math.max(0, Math.floor(start * FS)); i < Math.min(n, end * FS); i++) {
+      const t = i / FS;
+      const env = smoothstep((t - start) / 0.2) * smoothstep((end - t) / 0.2);
+      const amp = 0.25 + 0.15 * Math.sin(2 * Math.PI * mod.f * t + mod.phase); // waxing and waning
+      let v = 0;
+      for (const { f, phase } of waves) v += Math.sin(2 * Math.PI * f * t + phase);
+      buf[i] += amp * 0.5 * v * env;
     }
   }
 

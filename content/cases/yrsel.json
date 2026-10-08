@@ -11,7 +11,7 @@
   "steps": [
     {
       "phase": "belastning",
-      "watt": 25,
+      "watt": 50,
       "timeSec": 100,
       "stripId": "normal-4",
       "hr": 84,
@@ -20,7 +20,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 75,
+      "watt": 100,
       "timeSec": 250,
       "stripId": "bradyarytmi-2",
       "hr": 50,
@@ -31,7 +31,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 75,
+      "watt": 100,
       "timeSec": 330,
       "stripId": "av-block-2-3-2",
       "hr": 38,

@@ -11,7 +11,7 @@
   "steps": [
     {
       "phase": "belastning",
-      "watt": 50,
+      "watt": 75,
       "timeSec": 200,
       "stripId": "ves-enstaka-3",
       "hr": 85,
@@ -21,7 +21,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 100,
+      "watt": 125,
       "timeSec": 420,
       "stripId": "ves-trioler-3",
       "hr": 110,
@@ -31,7 +31,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 125,
+      "watt": 150,
       "timeSec": 540,
       "stripId": "vt-ihallande-1",
       "hr": 185,

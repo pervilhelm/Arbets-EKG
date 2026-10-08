@@ -14,6 +14,7 @@ describe("bundled content", () => {
     expect(idsWithAction("avbryt")).toEqual(
       [
         "vt-ihallande",
+        "ventrikelflimmer",
         "av-block-2-3",
         "st-hojning",
         "bt-fall-med-ischemi",
@@ -36,10 +37,12 @@ describe("bundled content", () => {
         "bradyarytmi",
         "hypertensiv-reaktion",
         "skankelblock-nytt",
+        "formaksflimmer-fladder",
+        "ves-bigemini",
       ].sort(),
     );
     expect(idsWithAction("fortsatt")).toEqual(
-      ["ves-enstaka", "sves-enstaka", "sinustakykardi", "puls-85-procent"].sort(),
+      ["ves-enstaka", "sves-enstaka", "sinustakykardi", "puls-85-procent", "av-block-1"].sort(),
     );
   });
 
@@ -52,14 +55,24 @@ describe("bundled content", () => {
   });
 
   it("loads protocol and sources", () => {
-    expect(protocol).toMatchObject({ startW: 25, stepW: 25, stepSec: 120, recoveryMinSec: 360 });
+    expect(protocol).toMatchObject({
+      startW: 50,
+      altStartW: [75],
+      stepW: 25,
+      stepSec: 120,
+      bpEverySec: 180,
+      recoveryMinSec: 360,
+    });
     expect(sources.map((s) => s.id)).toEqual(["aha-2013", "mitdb", "incartdb", "ptb-xl"]);
   });
 
   it("covers the case requirements in PLAN.md", () => {
     const steps = cases.flatMap((c) => c.steps);
     const covered = new Set(steps.map((s) => s.findingId));
-    const ecgFindings = findings.filter((f) => ECG_CATEGORIES.includes(f.category));
+    // Every ECG finding with a real ECG; the rest cannot be shown in a case step.
+    const ecgFindings = findings.filter(
+      (f) => ECG_CATEGORIES.includes(f.category) && (f.ecg?.stripIds.length ?? 0) > 0,
+    );
     expect(cases).toHaveLength(6);
     for (const f of ecgFindings) expect(covered, f.id).toContain(f.id);
     const bpOrSymptom = findings.filter(

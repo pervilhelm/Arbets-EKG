@@ -11,7 +11,7 @@
   "steps": [
     {
       "phase": "belastning",
-      "watt": 50,
+      "watt": 75,
       "timeSec": 180,
       "stripId": "normal-1",
       "hr": 72,
@@ -20,7 +20,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 75,
+      "watt": 100,
       "timeSec": 300,
       "stripId": "st-sankning-1",
       "hr": 75,
@@ -31,7 +31,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 100,
+      "watt": 125,
       "timeSec": 400,
       "stripId": "st-sankning-1",
       "hr": 80,
@@ -42,7 +42,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 100,
+      "watt": 125,
       "timeSec": 470,
       "stripId": "st-hojning-1",
       "hr": 75,

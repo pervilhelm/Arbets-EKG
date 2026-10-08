@@ -10,7 +10,7 @@ export function FindingPage() {
   if (!finding) {
     return (
       <Page title="Fyndet hittades inte">
-        <Link to="/" className="text-sky-800 underline">
+        <Link to="/" className="inline-flex min-h-11 items-center text-sky-800 underline">
           Till uppslag
         </Link>
       </Page>
@@ -52,7 +52,10 @@ export function FindingPage() {
           <ul className="space-y-2">
             {finding.confuseWith.map((c) => (
               <li key={c.findingId}>
-                <Link to={`/fynd/${c.findingId}`} className="font-semibold text-sky-800 underline">
+                <Link
+                  to={`/fynd/${c.findingId}`}
+                  className="inline-flex min-h-11 items-center font-semibold text-sky-800 underline"
+                >
                   {findingById.get(c.findingId)?.name ?? c.findingId}
                 </Link>
                 <span className="block text-sm text-slate-700">{c.difference}</span>

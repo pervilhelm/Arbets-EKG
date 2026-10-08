@@ -2,7 +2,7 @@ import { useEffect, type ReactNode } from "react";
 
 export function Page({ title, children }: { title: string; children?: ReactNode }) {
   useEffect(() => {
-    document.title = `${title} · EKG-träning`;
+    document.title = `${title} · Arbets-EKG`;
   }, [title]);
 
   return (

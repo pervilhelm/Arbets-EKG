@@ -6,7 +6,7 @@
   "action": "avbryt",
   "summary": "Systoliskt BT sjunker mer än 10 mmHg trots att belastningen ökar, samtidigt som andra tecken på ischemi finns, t.ex. bröstsmärta eller ST-förändring.",
   "recognize": [
-    "Systoliskt BT mer än 10 mmHg lägre trots ökad belastning",
+    "Systoliskt BT mer än 10 mmHg lägre än föregående mätning trots ökad belastning",
     "Samtidigt andra tecken på ischemi, t.ex. bröstsmärta eller ST-förändring"
   ],
   "confuseWith": [

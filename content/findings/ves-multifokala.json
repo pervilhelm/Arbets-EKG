@@ -1,11 +1,7 @@
 {
   "id": "ves-multifokala",
   "name": "Multifokala VES",
-  "aliases": [
-    "multifokala VES",
-    "polymorfa VES",
-    "ventrikulära extraslag"
-  ],
+  "aliases": ["multifokala VES", "polymorfa VES", "ventrikulära extraslag"],
   "category": "arytmi",
   "action": "overvag",
   "summary": "Ventrikulära extraslag med olika utseende, vilket tyder på flera retbara fokus i kamrarna.",
@@ -27,11 +23,7 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin. Följ EKG noga: ökar extraslagen eller kommer de i följd?",
   "ecg": {
     "presetId": "ves-multifokala",
-    "stripIds": [
-      "ves-multifokala-1",
-      "ves-multifokala-2",
-      "ves-multifokala-3"
-    ]
+    "stripIds": ["ves-multifokala-1", "ves-multifokala-2", "ves-multifokala-3"]
   },
   "sources": [
     {

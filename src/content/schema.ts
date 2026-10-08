@@ -18,6 +18,7 @@ export const RhythmSegment = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("vt"), rate: Rate, sec: Sec }),
   z.object({ kind: z.literal("svt"), rate: Rate, sec: Sec }),
   z.object({ kind: z.literal("af"), meanRate: Rate, sec: Sec }),
+  z.object({ kind: z.literal("vf"), sec: Sec }), // no QRS complexes
   z.object({
     kind: z.literal("avblock"),
     type: z.enum(["1", "mobitz1", "mobitz2", "3"]),
@@ -144,6 +145,7 @@ export const Guide = z.object({
 
 export const Protocol = z.object({
   startW: z.number(),
+  altStartW: z.array(z.number()).optional(), // other start loads in use, e.g. 75 W
   stepW: z.number(),
   stepSec: z.number(),
   bpEverySec: z.number(),

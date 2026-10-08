@@ -8,7 +8,7 @@ export function ActionListPage() {
   if (!isAction(action)) {
     return (
       <Page title="Hittades inte">
-        <Link to="/" className="text-sky-800 underline">
+        <Link to="/" className="inline-flex min-h-11 items-center text-sky-800 underline">
           Till uppslag
         </Link>
       </Page>
@@ -50,7 +50,7 @@ export function ActionListPage() {
           </section>
         );
       })}
-      <Link to="/" className="text-sky-800 underline">
+      <Link to="/" className="inline-flex min-h-11 items-center text-sky-800 underline">
         Till uppslag
       </Link>
     </Page>

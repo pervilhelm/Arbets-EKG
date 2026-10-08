@@ -1,0 +1,22 @@
+{
+  "id": "ventrikelflimmer",
+  "findingId": "ventrikelflimmer",
+  "lead": "II",
+  "rhythm": {
+    "baseHr": 110,
+    "seed": 13,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 6
+      },
+      {
+        "kind": "vf",
+        "sec": 60
+      }
+    ]
+  },
+  "review": {
+    "status": "utkast"
+  }
+}

@@ -13,12 +13,12 @@ Appen lär sjuksköterskor att **tolka EKG och känna igen arytmier under arbets
 ## Status
 
 - [x] Fas 1–4: app-skal och PWA, innehåll och validering, EKG-generator, remsor från PhysioNet
-- [ ] Fas 0: manuella förutsättningar (Oscar), krävs för fas 9
+- [x] Fas 0: manuella förutsättningar (Oscar), utom granskarens signatur
 - [x] Fas 5: riktiga 12-avlednings-EKG
 - [x] Fas 6: fyndkort och uppslag
 - [x] Fas 7: tolkningsguide
 - [x] Fas 8: quiz och fallövningar
-- [ ] Fas 9: granskning och release
+- [ ] Fas 9: granskning och release (allt utom granskningen gjort 2026-10-08, se fas 9)
 
 ## Arbetssätt (gäller varje session)
 
@@ -46,18 +46,20 @@ Uppskattad förbrukning, inklusive cachad kontext: fas 5 cirka 3–4 M tokens, f
 
 **Fynd per åtgärd** (källa AHA 2013, _Indications for Termination_; fortsätt-fynden bekräftas av granskaren):
 
-- Avbryt: `vt-ihallande`, `av-block-2-3`, `st-hojning`, `bt-fall-med-ischemi`, `angina-mattlig-svar`, `cns-symtom`, `dalig-perfusion`, `tekniskt-fel`, `patient-vill-avbryta`.
-- Överväg avbrott: `st-sankning`, `bt-fall-utan-ischemi`, `brostsmarta-okande`, `trotthet-dyspne`, `ves-multifokala`, `ves-trioler`, `svt`, `bradyarytmi`, `hypertensiv-reaktion`, `skankelblock-nytt`.
-- Fortsätt och observera: `ves-enstaka`, `sves-enstaka`, `sinustakykardi`, `puls-85-procent`.
+- Avbryt: `vt-ihallande`, `ventrikelflimmer`, `av-block-2-3`, `st-hojning`, `bt-fall-med-ischemi`, `angina-mattlig-svar`, `cns-symtom`, `dalig-perfusion`, `tekniskt-fel`, `patient-vill-avbryta`.
+- Överväg avbrott: `st-sankning`, `bt-fall-utan-ischemi`, `brostsmarta-okande`, `trotthet-dyspne`, `ves-multifokala`, `ves-trioler`, `svt`, `bradyarytmi`, `hypertensiv-reaktion`, `skankelblock-nytt`, `formaksflimmer-fladder`, `ves-bigemini`.
+- Fortsätt och observera: `ves-enstaka`, `sves-enstaka`, `sinustakykardi`, `puls-85-procent`, `av-block-1`.
 
-EKG-fynden är de tolv med kategori `arytmi`, `overledning` eller `ischemi`.
+`ventrikelflimmer`, `formaksflimmer-fladder`, `ves-bigemini` och `av-block-1` lades till i fas 9 på Oscars instruktion (utkast, utan riktiga EKG). `ves-trioler` heter _Icke-ihållande VT_ (tre VES eller fler i följd, under 30 s). `vt-ihallande` gäller VT i 30 s eller mer.
+
+EKG-fynden är de sexton med kategori `arytmi`, `overledning` eller `ischemi`.
 
 ## Fas 0: manuella förutsättningar (Oscar)
 
-- [ ] Klinikens PM för arbetsprov: avbrottskriterier, protokoll, BT-intervall, rutin vid avbrott.
-- [ ] Medicinskt ansvarig granskare som signerar innehållet.
-- [ ] Svar på frågorna i `docs/OPEN_QUESTIONS.md`.
-- [ ] Appens namn, GitHub-repo med Pages, och besked om PM:et får publiceras öppet.
+- [x] Klinikens PM: finns inte. Avbrottskriterierna följer AHA 2013. BT var 3:e minut, start 50 W (eller 75 W) + 25 W varannan minut, läkaren tillkallas vid avbrott.
+- [ ] Medicinskt ansvarig granskare som signerar innehållet: en läkare är vidtalad.
+- [x] Svar på frågorna i `docs/OPEN_QUESTIONS.md` (besvarat 2026-10-08).
+- [x] Appens namn _Arbets-EKG_, privat repo `pervilhelm/Arbets-EKG`, appen på GitHub Pages med `noindex`.
 
 ## Fas 5: riktiga 12-avlednings-EKG
 
@@ -128,6 +130,8 @@ Mål: användaren övar tolkning och avbrottsbeslut på riktiga EKG.
 ## Fas 9: granskning och release
 
 Kräver fas 0.
+
+**Status 2026-10-08:** steg 1 (utan PM, enligt Oscars svar), 2, 4 och 5 är gjorda, liksom offline-e2e. Kvar: granskarens beslut (steg 3), därefter `--strict` och den första releasen.
 
 1. Anpassa innehållet till klinikens PM. Avvikelser mot AHA 2013 får en egen `sourceId`.
 2. Sidan `/granskning` (bara i dev-bygget, utskrivbar): varje fynd, remsa, guidesteg och fall med id och plats för _Godkänd_ och _Kommentar_.

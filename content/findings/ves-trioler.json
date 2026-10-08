@@ -1,37 +1,29 @@
 {
   "id": "ves-trioler",
-  "name": "Ventrikulära trioler (tre VES i följd)",
-  "aliases": [
-    "triol",
-    "trioler",
-    "tre VES i följd",
-    "salva"
-  ],
+  "name": "Icke-ihållande VT (tre VES eller fler i följd)",
+  "aliases": ["icke-ihållande VT", "NSVT", "triol", "trioler", "tre VES i följd", "salva", "VT-salva"],
   "category": "arytmi",
   "action": "overvag",
-  "summary": "Tre ventrikulära extraslag i direkt följd, en kort salva.",
+  "summary": "Tre ventrikulära extraslag eller fler i direkt följd, som upphör inom 30 sekunder. Tre slag kallas också triol.",
   "recognize": [
-    "Tre breda QRS i direkt följd utan P-vågor",
+    "Tre breda QRS eller fler i direkt följd utan P-vågor",
+    "Upphör inom 30 sekunder",
     "Återgår därefter till grundrytmen"
   ],
   "confuseWith": [
     {
       "findingId": "vt-ihallande",
-      "difference": "VT fortsätter; en triol upphör efter tre slag."
+      "difference": "Ihållande VT pågår i 30 sekunder eller mer; icke-ihållande VT upphör före dess."
     },
     {
       "findingId": "ves-multifokala",
       "difference": "Multifokala VES har olika form men kommer inte nödvändigtvis i följd."
     }
   ],
-  "todo": "Informera ansvarig läkare enligt klinikens rutin och övervaka EKG noga. Ihållande VT är ett absolut kriterium.",
+  "todo": "Informera ansvarig läkare enligt klinikens rutin och övervaka EKG noga. Ihållande VT (30 sekunder eller mer) är ett absolut avbrottskriterium.",
   "ecg": {
     "presetId": "ves-trioler",
-    "stripIds": [
-      "ves-trioler-1",
-      "ves-trioler-2",
-      "ves-trioler-3"
-    ]
+    "stripIds": ["ves-trioler-1", "ves-trioler-2", "ves-trioler-3"]
   },
   "sources": [
     {

@@ -1,8 +1,9 @@
 {
-  "startW": 25,
+  "startW": 50,
+  "altStartW": [75],
   "stepW": 25,
   "stepSec": 120,
-  "bpEverySec": 120,
+  "bpEverySec": 180,
   "recoveryMinSec": 360,
   "review": {
     "status": "utkast"

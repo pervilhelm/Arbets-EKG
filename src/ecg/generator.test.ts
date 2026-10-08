@@ -95,6 +95,17 @@ describe("generate", () => {
     expect(Math.abs(rate - 180) / 180).toBeLessThan(0.05);
   });
 
+  it("VF: no beats during fibrillation, but a chaotic signal of at least 0.2 mV", () => {
+    const { beats, samples } = generate(
+      spec({ baseHr: 100, pattern: [{ kind: "sinus", beats: 3 }, { kind: "vf", sec: 60 }] }),
+      10,
+    );
+    const lastBeat = Math.max(...beats.map((b) => b.time));
+    expect(lastBeat).toBeLessThan(2.5);
+    const vf = Array.from(samples.slice(4 * FS, 10 * FS));
+    expect(Math.max(...vf) - Math.min(...vf)).toBeGreaterThan(0.4);
+  });
+
   it("Mobitz I: PR increases within each cycle before the dropped beat", () => {
     const beats = generate(
       spec({ baseHr: 80, pattern: [{ kind: "avblock", type: "mobitz1", sec: 60 }] }),

@@ -7,3 +7,10 @@ html {
 body {
   @apply bg-slate-50 text-slate-900 antialiased;
 }
+
+/* Visible keyboard focus on every interactive element. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-sky-700);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}

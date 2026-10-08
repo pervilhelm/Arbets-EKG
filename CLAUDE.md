@@ -61,5 +61,6 @@ Urvalet styrs av `scripts/ecg/strip_map.yaml`. Skriptet skriver `public/strips/*
 
 ## Att känna till
 
-- Appnamnet är en platshållare (`APP_NAME` i `vite.config.ts`, `<title>` i `index.html`) tills fas 0 bestämmer det.
+- Appen heter Arbets-EKG (`APP_NAME` i `vite.config.ts`, `<title>` i `index.html`).
+- `/granskning` (bara dev) är det utskrivbara granskningsunderlaget. `.github/workflows/release.yml` publicerar till GitHub Pages och kräver granskat innehåll.
 - `BASE_PATH` styr Vites `base` och routerns `basename` vid undersökväg, t.ex. GitHub Pages.

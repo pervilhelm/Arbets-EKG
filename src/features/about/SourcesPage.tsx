@@ -13,7 +13,12 @@ export function SourcesPage() {
         {sources.map((s) => (
           <li key={s.id} className="rounded-lg border border-slate-200 bg-white p-4">
             <h2 className="font-semibold">
-              <a href={s.url} className="text-sky-800 underline" target="_blank" rel="noreferrer">
+              <a
+                href={s.url}
+                className="inline-flex min-h-11 items-center text-sky-800 underline"
+                target="_blank"
+                rel="noreferrer"
+              >
                 {s.title}
               </a>
             </h2>

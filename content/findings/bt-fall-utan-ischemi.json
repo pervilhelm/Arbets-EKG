@@ -6,7 +6,7 @@
   "action": "overvag",
   "summary": "Systoliskt BT sjunker mer än 10 mmHg och ligger kvar under utgångsvärdet trots ökad belastning, utan andra tecken på ischemi.",
   "recognize": [
-    "Systoliskt BT mer än 10 mmHg lägre trots ökad belastning",
+    "Systoliskt BT mer än 10 mmHg lägre än föregående mätning trots ökad belastning",
     "BT ligger kvar under utgångsvärdet",
     "Ingen bröstsmärta eller ST-förändring"
   ],

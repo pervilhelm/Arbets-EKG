@@ -31,6 +31,13 @@ export const router = createBrowserRouter(
         ...(import.meta.env.DEV
           ? [
               {
+                path: "granskning",
+                HydrateFallback: () => null,
+                lazy: async () => ({
+                  Component: (await import("./features/signoff/SignoffPage")).SignoffPage,
+                }),
+              },
+              {
                 path: "dev/ecg",
                 HydrateFallback: () => null,
                 lazy: async () => ({ Component: (await import("./ecg/DevEcgPage")).DevEcgPage }),

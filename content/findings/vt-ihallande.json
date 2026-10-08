@@ -1,25 +1,20 @@
 {
   "id": "vt-ihallande",
   "name": "Ihållande ventrikeltakykardi",
-  "aliases": [
-    "VT",
-    "kammartakykardi",
-    "ventrikeltakykardi",
-    "ihållande VT"
-  ],
+  "aliases": ["VT", "kammartakykardi", "ventrikeltakykardi", "ihållande VT"],
   "category": "arytmi",
   "action": "avbryt",
-  "summary": "Snabb, regelbunden rytm med breda QRS-komplex från kamrarna. Kan snabbt leda till påverkad cirkulation och kammarflimmer.",
+  "summary": "Ventrikeltakykardi som pågår i 30 sekunder eller mer. Kan snabbt påverka cirkulationen och övergå i kammarflimmer.",
   "recognize": [
     "Breda QRS-komplex (minst 120 ms) i följd",
     "Snabb, regelbunden frekvens",
     "P-vågor saknas eller går oberoende av QRS",
-    "Fortsätter i stället för att upphöra efter några slag"
+    "Pågår i 30 sekunder eller mer"
   ],
   "confuseWith": [
     {
       "findingId": "ves-trioler",
-      "difference": "En triol är tre VES i följd som sedan upphör; VT fortsätter."
+      "difference": "Icke-ihållande VT är tre slag eller fler som upphör inom 30 sekunder; ihållande VT pågår längre."
     },
     {
       "findingId": "skankelblock-nytt",
@@ -33,9 +28,7 @@
   "todo": "Avbryt belastningen omedelbart. Larma ansvarig läkare enligt klinikens rutin. Bedöm medvetande och andning, fortsätt EKG-övervakning och mät BT.",
   "ecg": {
     "presetId": "vt-ihallande",
-    "stripIds": [
-      "vt-ihallande-1"
-    ]
+    "stripIds": ["vt-ihallande-1"]
   },
   "sources": [
     {

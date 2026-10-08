@@ -1,0 +1,33 @@
+{
+  "id": "av-block-1",
+  "name": "AV-block I",
+  "aliases": ["AV-block grad I", "första gradens AV-block", "förlängd PR-tid"],
+  "category": "overledning",
+  "action": "fortsatt",
+  "summary": "Fördröjd överledning från förmak till kammare. Varje P-våg följs av ett QRS, men PR-tiden är längre än 200 ms.",
+  "recognize": [
+    "PR-tid över 200 ms (mer än en stor ruta)",
+    "Konstant PR-tid",
+    "Varje P-våg följs av ett QRS"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "av-block-2-3",
+      "difference": "Vid AV-block II eller III följs inte varje P-våg av ett QRS."
+    }
+  ],
+  "todo": "Fortsätt och observera. Följ PR-tiden och var uppmärksam på bortfallna slag, som tyder på AV-block II. Informera läkaren om PR-tiden förlängs under belastning.",
+  "ecg": {
+    "presetId": "av-block-1",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Disorders of Impulse Conduction"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

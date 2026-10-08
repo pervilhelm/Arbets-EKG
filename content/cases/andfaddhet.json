@@ -11,7 +11,7 @@
   "steps": [
     {
       "phase": "belastning",
-      "watt": 50,
+      "watt": 75,
       "timeSec": 230,
       "stripId": "sinustakykardi-1",
       "hr": 102,
@@ -20,7 +20,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 100,
+      "watt": 125,
       "timeSec": 470,
       "stripId": "ves-enstaka-3",
       "hr": 120,
@@ -30,7 +30,7 @@
     },
     {
       "phase": "belastning",
-      "watt": 150,
+      "watt": 175,
       "timeSec": 650,
       "stripId": "sinustakykardi-1",
       "hr": 134,

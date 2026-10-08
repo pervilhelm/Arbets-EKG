@@ -1,0 +1,37 @@
+{
+  "id": "ventrikelflimmer",
+  "name": "Kammarflimmer",
+  "aliases": ["VF", "ventrikelflimmer", "kammarflimmer", "hjärtstopp"],
+  "category": "arytmi",
+  "action": "avbryt",
+  "summary": "Kaotisk elektrisk aktivitet i kamrarna utan pumpfunktion. Patienten förlorar medvetandet inom sekunder. Hjärtstopp.",
+  "recognize": [
+    "Oregelbundna vågor av växlande form och höjd",
+    "Inga urskiljbara QRS-komplex, P-vågor eller T-vågor",
+    "Patienten blir medvetslös"
+  ],
+  "confuseWith": [
+    {
+      "findingId": "tekniskt-fel",
+      "difference": "Vid artefakt är patienten vaken och opåverkad, och QRS syns ofta i andra avledningar."
+    },
+    {
+      "findingId": "vt-ihallande",
+      "difference": "VT har regelbundna breda QRS-komplex."
+    }
+  ],
+  "todo": "Avbryt omedelbart. Kontrollera medvetande och andning, larma enligt klinikens hjärtstoppsrutin och starta HLR. Defibrillera så snart det är möjligt.",
+  "ecg": {
+    "presetId": "ventrikelflimmer",
+    "stripIds": []
+  },
+  "sources": [
+    {
+      "sourceId": "aha-2013",
+      "locator": "Indications for Termination: Absolute"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

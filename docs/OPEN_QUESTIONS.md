@@ -1,34 +1,37 @@
 # Öppna frågor
 
-| Fråga                                                                                 | Vem svarar | Källa |
-| ------------------------------------------------------------------------------------- | ---------- | ----- |
-| Appens namn. Manifestet använder platshållaren _EKG-träning arbetsprov_ tills vidare. | Oscar      | Fas 0 |
-| GitHub Pages sökväg (`BASE_PATH`) bestäms när repot finns.                            | Oscar      | Fas 0 |
+### Besvarat 2026-10-08 (Oscar)
 
-## Medvetet utelämnade fynd
+- Det finns inget klinik-PM. Avbrottskriterierna följer AHA 2013, eftersom det är dem appen ska lära ut.
+- BT mäts var 3:e minut. Vid avbrott tillkallas läkaren.
+- Protokoll: start 50 W eller 75 W, ökning 25 W varannan minut.
+- BT-fall räknas mot föregående mätning.
+- Tre VES eller fler i följd är VT. Den är icke-ihållande tills den har pågått i 30 sekunder eller mer.
+- Förmaksflimmer/fladder, kammarflimmer, AV-block I, icke-ihållande VT och bigemini ska med.
+- Appen heter Arbets-EKG. Repo: github.com/pervilhelm/Arbets-EKG (privat). Appen publiceras på GitHub Pages med `noindex`. Sidan är nåbar för den som har länken.
+- En läkare granskar innehållet. Fas 9 genomförs utan granskaren, och allt förblir `utkast` tills granskningen är gjord.
 
-Läggs till först efter klinikens PM och granskarens svar.
+| Fråga | Vem svarar | Källa |
+| ----- | ---------- | ----- |
 
-| Fråga                                                                                     | Vem svarar | Källa                       |
-| ----------------------------------------------------------------------------------------- | ---------- | --------------------------- |
-| Nytillkommet förmaksflimmer eller fladder: ska det in, och med vilken åtgärd?             | Granskaren | PLAN.md, Medvetet utelämnat |
-| Ventrikelflimmer och akut rutin: ska fyndet in, och vilken rutin gäller vid larm?         | Granskaren | PLAN.md, Medvetet utelämnat |
-| AV-block I: ska det in, och med vilken åtgärd?                                            | Granskaren | PLAN.md, Medvetet utelämnat |
-| Icke-ihållande VT: ska det in, och med vilken åtgärd?                                     | Granskaren | PLAN.md, Medvetet utelämnat |
-| Klinikens definition av ihållande VT (`vt-ihallande` anger ingen tidsgräns tills vidare). | Granskaren | PLAN.md, Medvetet utelämnat |
-| Bigemini: ska det in, och med vilken åtgärd?                                              | Granskaren | PLAN.md, Medvetet utelämnat |
+## Fynd tillagda i fas 9
+
+| Fråga                                                                                                                                                                                                                                                 | Vem svarar | Källa |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----- |
+| `formaksflimmer-fladder` (överväg), `ventrikelflimmer` (avbryt), `av-block-1` (fortsätt) och `ves-bigemini` (överväg) är utkast. Åtgärderna är Claude Codes tolkning av AHA 2013. Bekräfta särskilt `ves-bigemini`, som AHA inte nämner uttryckligen. | Granskaren | Fas 9 |
+| De fyra nya fynden har bara syntetiska EKG. Riktiga 12-avlednings-EKG kräver en ny körning av Python-pipelinen (remsorna är frysta efter fas 5). Kammarflimmer finns inte i PTB-XL eller INCART med 12 avledningar.                                   | Oscar      | Fas 9 |
+| `ves-trioler` heter nu _Icke-ihållande VT (tre VES eller fler i följd)_ och `vt-ihallande` gäller VT i 30 sekunder eller mer. Id:na är oförändrade.                                                                                                   | Granskaren | Fas 9 |
+| BT-fall räknas nu mot föregående mätning (Oscars besked). AHA 2013 räknar fallet från utgångsvärdet (_from baseline_). Om avvikelsen behålls ska den få en egen `sourceId` enligt fas 9.                                                              | Granskaren | Fas 9 |
+| Startbelastningen är 50 W (alternativt 75 W). Fallens belastning är omräknad, men puls och BT i fallen är oförändrade. Är de fortfarande rimliga?                                                                                                     | Granskaren | Fas 9 |
 
 ## Platshållare och utkast
 
-| Fråga                                                                                                                                                                                                                                                                                   | Vem svarar           | Källa                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- |
-| `protocol.json` följer AHA:s exempel för cykel (start 25 W, steg 25 W var 120 s, återhämtning minst 360 s). Stämmer det med klinikens protokoll?                                                                                                                                        | Oscar (klinikens PM) | Fas 2                  |
-| `protocol.bpEverySec: 120` är en platshållare. Hur ofta mäts BT enligt klinikens PM?                                                                                                                                                                                                    | Oscar (klinikens PM) | Fas 2                  |
-| Fortsätt-fynden (`ves-enstaka`, `sves-enstaka`, `sinustakykardi`, `puls-85-procent`) är inte avbrottskriterier i AHA:s tabell. Bekräfta klassningen _Fortsätt och observera_.                                                                                                           | Granskaren           | PLAN.md, Seed-innehåll |
-| BT-fall >10 mmHg (`bt-fall-med-ischemi`, `bt-fall-utan-ischemi`): mot vilket värde mäts fallet, föregående mätning eller utgångsvärdet? Fyndtexterna anger inget referensvärde tills vidare.                                                                                            | Granskaren           | Fas 2                  |
-| `puls-85-procent`: vilken formel för åldersberäknad maxpuls använder kliniken?                                                                                                                                                                                                          | Granskaren           | Fas 2                  |
-| Alla `summary`, `recognize`, `confuseWith`, `todo` och `aliases` i `content/findings/` är utkast skrivna av Claude Code och behöver granskas. `todo` hänvisar till _ansvarig läkare enligt klinikens rutin_ tills PM:ets larmrutin finns.                                               | Granskaren           | Fas 2                  |
-| EKG-presets i `content/ecg-presets/` är syntetiska utkast (avledning II) och behöver granskas mot fyndet: frekvenser, morfologi och ST-nivåer. `av-block-2-3` visar först Mobitz II och sedan grad III i samma preset. `st-hojning` visar +2 mm och `st-sankning` −2,5 mm horisontellt. | Granskaren           | Fas 3                  |
+| Fråga                                                                                                                                                                                                                                                                                   | Vem svarar | Källa                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------- |
+| Fortsätt-fynden (`ves-enstaka`, `sves-enstaka`, `sinustakykardi`, `puls-85-procent`) är inte avbrottskriterier i AHA:s tabell. Bekräfta klassningen _Fortsätt och observera_.                                                                                                           | Granskaren | PLAN.md, Seed-innehåll |
+| `puls-85-procent`: vilken formel för åldersberäknad maxpuls ska användas (220 − ålder eller annan)? Oscar känner inte till någon svensk standard.                                                                                                                                       | Granskaren | Fas 2                  |
+| Alla `summary`, `recognize`, `confuseWith`, `todo` och `aliases` i `content/findings/` är utkast skrivna av Claude Code och behöver granskas. `todo` hänvisar till _ansvarig läkare enligt klinikens rutin_ tills PM:ets larmrutin finns.                                               | Granskaren | Fas 2                  |
+| EKG-presets i `content/ecg-presets/` är syntetiska utkast (avledning II) och behöver granskas mot fyndet: frekvenser, morfologi och ST-nivåer. `av-block-2-3` visar först Mobitz II och sedan grad III i samma preset. `st-hojning` visar +2 mm och `st-sankning` −2,5 mm horisontellt. | Granskaren | Fas 3                  |
 
 ## Riktiga EKG-remsor (fas 4)
 

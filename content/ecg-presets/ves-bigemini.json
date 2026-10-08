@@ -1,0 +1,23 @@
+{
+  "id": "ves-bigemini",
+  "findingId": "ves-bigemini",
+  "lead": "II",
+  "rhythm": {
+    "baseHr": 100,
+    "seed": 19,
+    "pattern": [
+      {
+        "kind": "sinus",
+        "beats": 1
+      },
+      {
+        "kind": "pvc",
+        "morphology": "a",
+        "count": 1
+      }
+    ]
+  },
+  "review": {
+    "status": "utkast"
+  }
+}
