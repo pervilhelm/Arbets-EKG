@@ -20,6 +20,17 @@
     },
     {
       "phase": "belastning",
+      "watt": 100,
+      "timeSec": 290,
+      "stripId": "formaksflimmer-fladder-1",
+      "hr": 132,
+      "sbp": 195,
+      "dbp": 100,
+      "symptom": "Det känns som att hjärtat slår oregelbundet.",
+      "findingId": "formaksflimmer-fladder"
+    },
+    {
+      "phase": "belastning",
       "watt": 125,
       "timeSec": 380,
       "stripId": "skankelblock-nytt-2",

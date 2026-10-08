@@ -30,6 +30,16 @@
     },
     {
       "phase": "belastning",
+      "watt": 150,
+      "timeSec": 560,
+      "stripId": "ves-bigemini-1",
+      "hr": 124,
+      "sbp": 178,
+      "dbp": 85,
+      "findingId": "ves-bigemini"
+    },
+    {
+      "phase": "belastning",
       "watt": 175,
       "timeSec": 650,
       "stripId": "sinustakykardi-1",

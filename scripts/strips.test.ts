@@ -23,7 +23,7 @@ const isTwelveLead = (s: StripFile) =>
 
 describe("real ECG strips", () => {
   // Added in phase 9 after the strips were frozen; listed in docs/OPEN_QUESTIONS.md.
-  const AWAITING_STRIPS = ["av-block-1", "formaksflimmer-fladder", "ventrikelflimmer", "ves-bigemini"];
+  const AWAITING_STRIPS = ["ventrikelflimmer"];
 
   it("give every ECG finding at least one 12-lead strip", () => {
     const missing = readJson<FindingFile>("content/findings")

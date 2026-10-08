@@ -132,3 +132,39 @@ normal:
   require_scp: [SR]
   exclude_scp: [PVC, PAC, SARRH, LAFB, IRBBB, 1AVB, LVH, LPR]
   rate_bins: [[55, 65], [65, 75], [75, 85], [85, 100]]
+
+# Added in phase 9. Kammarflimmer (ventrikelflimmer) has no 12-lead source here:
+# PTB-XL has no VF code and INCART has no VF episodes.
+
+formaksflimmer-fladder:
+  - dataset: ptb-xl
+    scp: AFIB
+    exclude_scp: [CLBBB, CRBBB, PACE, WPW, PVC]
+    count: 1
+  - dataset: ptb-xl
+    scp: AFLT
+    exclude_scp: [CLBBB, CRBBB, PACE, WPW]
+    count: 1
+  - dataset: mitdb
+    rhythm: "(AFL"
+    min_sec: 10
+    count: 1
+
+av-block-1:
+  dataset: ptb-xl
+  scp: 1AVB
+  require_scp: [SR]
+  # Also excludes repolarisation changes so the long PR is easy to see.
+  exclude_scp: [CLBBB, CRBBB, LAFB, PACE, WPW, PVC, PAC, 2AVB, 3AVB, NDT, NST_, ISC_, INVT, LOWT, ISCAL, ISCAS, ISCIN, ISCIL, ISCLA, LVH]
+  count: 1
+
+ves-bigemini:
+  - dataset: incartdb
+    beats: NVNVNVNVNV
+    max_count: { F: 0, A: 0 }
+    clean: true
+    count: 1
+  - dataset: mitdb
+    rhythm: "(B" # ventricular bigeminy
+    min_sec: 8
+    count: 1

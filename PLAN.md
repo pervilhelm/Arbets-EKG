@@ -50,7 +50,7 @@ Uppskattad förbrukning, inklusive cachad kontext: fas 5 cirka 3–4 M tokens, f
 - Överväg avbrott: `st-sankning`, `bt-fall-utan-ischemi`, `brostsmarta-okande`, `trotthet-dyspne`, `ves-multifokala`, `ves-trioler`, `svt`, `bradyarytmi`, `hypertensiv-reaktion`, `skankelblock-nytt`, `formaksflimmer-fladder`, `ves-bigemini`.
 - Fortsätt och observera: `ves-enstaka`, `sves-enstaka`, `sinustakykardi`, `puls-85-procent`, `av-block-1`.
 
-`ventrikelflimmer`, `formaksflimmer-fladder`, `ves-bigemini` och `av-block-1` lades till i fas 9 på Oscars instruktion (utkast, utan riktiga EKG). `ves-trioler` heter _Icke-ihållande VT_ (tre VES eller fler i följd, under 30 s). `vt-ihallande` gäller VT i 30 s eller mer.
+`ventrikelflimmer`, `formaksflimmer-fladder`, `ves-bigemini` och `av-block-1` lades till i fas 9 på Oscars instruktion (utkast). Pipelinen kördes igen för dem 2026-10-08, och alla utom `ventrikelflimmer` har riktiga EKG. `ves-trioler` heter _Icke-ihållande VT_ (tre VES eller fler i följd, under 30 s). `vt-ihallande` gäller VT i 30 s eller mer.
 
 EKG-fynden är de sexton med kategori `arytmi`, `overledning` eller `ischemi`.
 

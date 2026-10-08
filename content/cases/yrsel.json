@@ -13,10 +13,11 @@
       "phase": "belastning",
       "watt": 50,
       "timeSec": 100,
-      "stripId": "normal-4",
-      "hr": 84,
+      "stripId": "av-block-1-1",
+      "hr": 58,
       "sbp": 140,
-      "dbp": 80
+      "dbp": 80,
+      "findingId": "av-block-1"
     },
     {
       "phase": "belastning",

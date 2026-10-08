@@ -23,7 +23,7 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin och övervaka EKG noga. Var uppmärksam på ökande antal VES, salvor och symtom.",
   "ecg": {
     "presetId": "ves-bigemini",
-    "stripIds": []
+    "stripIds": ["ves-bigemini-1", "ves-bigemini-2"]
   },
   "sources": [
     {

@@ -29,7 +29,7 @@
   "todo": "Informera ansvarig läkare enligt klinikens rutin. Följ kammarfrekvens, BT och symtom noga. Läkaren avgör om testet ska avbrytas.",
   "ecg": {
     "presetId": "formaksflimmer-fladder",
-    "stripIds": []
+    "stripIds": ["formaksflimmer-fladder-1", "formaksflimmer-fladder-2", "formaksflimmer-fladder-3"]
   },
   "sources": [
     {

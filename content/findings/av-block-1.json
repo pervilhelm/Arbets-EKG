@@ -19,7 +19,7 @@
   "todo": "Fortsätt och observera. Följ PR-tiden och var uppmärksam på bortfallna slag, som tyder på AV-block II. Informera läkaren om PR-tiden förlängs under belastning.",
   "ecg": {
     "presetId": "av-block-1",
-    "stripIds": []
+    "stripIds": ["av-block-1-1"]
   },
   "sources": [
     {
