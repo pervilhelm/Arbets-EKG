@@ -1,0 +1,56 @@
+{
+  "id": "svimmade-pa-planen",
+  "title": "Svimmade på planen",
+  "background": "Man, 22 år, fotbollsspelare som svimmade under en match. Inga kända sjukdomar.",
+  "baseline": {
+    "stripId": "normal-1",
+    "hr": 56,
+    "sbp": 120,
+    "dbp": 70
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 100,
+      "stripId": "normal-4",
+      "hr": 72,
+      "sbp": 130,
+      "dbp": 70
+    },
+    {
+      "phase": "belastning",
+      "watt": 150,
+      "timeSec": 520,
+      "stripId": "ves-enstaka-3",
+      "hr": 140,
+      "sbp": 170,
+      "dbp": 70,
+      "findingId": "ves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 200,
+      "timeSec": 780,
+      "stripId": "ves-trioler-3",
+      "hr": 165,
+      "sbp": 190,
+      "dbp": 75,
+      "findingId": "ves-trioler"
+    },
+    {
+      "phase": "belastning",
+      "watt": 200,
+      "timeSec": 820,
+      "stripId": "vt-ihallande-1",
+      "hr": 210,
+      "sbp": 110,
+      "dbp": 70,
+      "symptom": "Det känns som förra gången.",
+      "findingId": "vt-ihallande"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

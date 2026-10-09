@@ -1,0 +1,55 @@
+{
+  "id": "lopare-hjartklappning",
+  "title": "Löpare med hjärtklappning",
+  "background": "Kvinna, 27 år, långdistanslöpare som ibland får hjärtklappning i slutet av långa pass.",
+  "baseline": {
+    "stripId": "normal-4",
+    "hr": 52,
+    "sbp": 115,
+    "dbp": 70
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 150,
+      "stripId": "normal-2",
+      "hr": 80,
+      "sbp": 130,
+      "dbp": 70
+    },
+    {
+      "phase": "belastning",
+      "watt": 175,
+      "timeSec": 650,
+      "stripId": "sinustakykardi-1",
+      "hr": 162,
+      "sbp": 175,
+      "dbp": 70,
+      "findingId": "sinustakykardi"
+    },
+    {
+      "phase": "belastning",
+      "watt": 225,
+      "timeSec": 900,
+      "stripId": "svt-3",
+      "hr": 220,
+      "sbp": 165,
+      "dbp": 75,
+      "symptom": "Nu kom det, det rusar.",
+      "findingId": "svt"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 60,
+      "stripId": "normal-1",
+      "hr": 118,
+      "sbp": 140,
+      "dbp": 70
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

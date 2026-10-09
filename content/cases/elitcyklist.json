@@ -1,0 +1,56 @@
+{
+  "id": "elitcyklist",
+  "title": "Elitcyklist",
+  "background": "Kvinna, 24 år, elitcyklist med vilopuls runt 45. Arbetsprovet görs som kontroll inför säsongen.",
+  "baseline": {
+    "stripId": "normal-2",
+    "hr": 48,
+    "sbp": 110,
+    "dbp": 65
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 60,
+      "stripId": "av-block-1-1",
+      "hr": 56,
+      "sbp": 115,
+      "dbp": 65,
+      "findingId": "av-block-1"
+    },
+    {
+      "phase": "belastning",
+      "watt": 150,
+      "timeSec": 500,
+      "stripId": "normal-3",
+      "hr": 128,
+      "sbp": 160,
+      "dbp": 65
+    },
+    {
+      "phase": "belastning",
+      "watt": 250,
+      "timeSec": 1000,
+      "stripId": "sinustakykardi-1",
+      "hr": 182,
+      "sbp": 200,
+      "dbp": 70,
+      "symptom": "Det bränner i benen, men jag kör på.",
+      "findingId": "puls-85-procent"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 60,
+      "stripId": "sves-enstaka-3",
+      "hr": 140,
+      "sbp": 175,
+      "dbp": 65,
+      "findingId": "sves-enstaka"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}
