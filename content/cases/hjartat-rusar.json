@@ -1,0 +1,45 @@
+{
+  "id": "hjartat-rusar",
+  "title": "Hjärtat rusar",
+  "background": "Man, 38 år, som ibland får plötslig hjärtklappning vid träning. Inga kända hjärtsjukdomar.",
+  "baseline": {
+    "stripId": "normal-2",
+    "hr": 64,
+    "sbp": 125,
+    "dbp": 75
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 180,
+      "stripId": "normal-4",
+      "hr": 100,
+      "sbp": 150,
+      "dbp": 75
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 260,
+      "stripId": "svt-3",
+      "hr": 190,
+      "sbp": 140,
+      "dbp": 80,
+      "symptom": "Det rusar i bröstet, det kom plötsligt.",
+      "findingId": "svt"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 60,
+      "stripId": "normal-1",
+      "hr": 105,
+      "sbp": 135,
+      "dbp": 75
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

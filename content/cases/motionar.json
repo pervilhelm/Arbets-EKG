@@ -1,0 +1,56 @@
+{
+  "id": "motionar",
+  "title": "Motionär före maraton",
+  "background": "Man, 45 år, frisk motionär som vill träna inför ett maraton. Arbetsprovet görs som en kontroll.",
+  "baseline": {
+    "stripId": "normal-1",
+    "hr": 58,
+    "sbp": 125,
+    "dbp": 75
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 100,
+      "stripId": "normal-3",
+      "hr": 82,
+      "sbp": 140,
+      "dbp": 75
+    },
+    {
+      "phase": "belastning",
+      "watt": 125,
+      "timeSec": 400,
+      "stripId": "sinustakykardi-1",
+      "hr": 140,
+      "sbp": 175,
+      "dbp": 75,
+      "findingId": "sinustakykardi"
+    },
+    {
+      "phase": "belastning",
+      "watt": 200,
+      "timeSec": 760,
+      "stripId": "normal-4",
+      "hr": 160,
+      "sbp": 205,
+      "dbp": 80,
+      "symptom": "Det är tungt, men jag kan fortsätta.",
+      "findingId": "puls-85-procent"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 60,
+      "stripId": "ves-enstaka-3",
+      "hr": 125,
+      "sbp": 180,
+      "dbp": 75,
+      "findingId": "ves-enstaka"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

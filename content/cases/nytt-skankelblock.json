@@ -1,0 +1,57 @@
+{
+  "id": "nytt-skankelblock",
+  "title": "Bredare QRS",
+  "background": "Kvinna, 67 år, med tryck i bröstet vid promenader i kyla. Utreds för misstänkt kärlkramp.",
+  "baseline": {
+    "stripId": "normal-4",
+    "hr": 70,
+    "sbp": 140,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 100,
+      "stripId": "normal-2",
+      "hr": 88,
+      "sbp": 155,
+      "dbp": 80
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 290,
+      "stripId": "skankelblock-nytt-1",
+      "hr": 112,
+      "sbp": 170,
+      "dbp": 85,
+      "findingId": "skankelblock-nytt"
+    },
+    {
+      "phase": "belastning",
+      "watt": 125,
+      "timeSec": 380,
+      "stripId": "skankelblock-nytt-2",
+      "hr": 122,
+      "sbp": 175,
+      "dbp": 85,
+      "symptom": "Det börjar trycka i bröstet.",
+      "findingId": "brostsmarta-okande"
+    },
+    {
+      "phase": "belastning",
+      "watt": 125,
+      "timeSec": 440,
+      "stripId": "skankelblock-nytt-2",
+      "hr": 126,
+      "sbp": 170,
+      "dbp": 85,
+      "symptom": "Nu gör det ont, som ett band runt bröstet.",
+      "findingId": "angina-mattlig-svar"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

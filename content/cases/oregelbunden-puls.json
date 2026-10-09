@@ -1,0 +1,55 @@
+{
+  "id": "oregelbunden-puls",
+  "title": "Oregelbunden puls",
+  "background": "Kvinna, 59 år, med korta episoder av hjärtklappning. Inga kända hjärtsjukdomar.",
+  "baseline": {
+    "stripId": "normal-2",
+    "hr": 74,
+    "sbp": 130,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 90,
+      "stripId": "normal-4",
+      "hr": 92,
+      "sbp": 140,
+      "dbp": 80
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 200,
+      "stripId": "sves-enstaka-3",
+      "hr": 104,
+      "sbp": 150,
+      "dbp": 80,
+      "findingId": "sves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 300,
+      "stripId": "formaksflimmer-fladder-2",
+      "hr": 150,
+      "sbp": 145,
+      "dbp": 85,
+      "symptom": "Nu slår det oregelbundet igen.",
+      "findingId": "formaksflimmer-fladder"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 120,
+      "stripId": "normal-3",
+      "hr": 96,
+      "sbp": 135,
+      "dbp": 80
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

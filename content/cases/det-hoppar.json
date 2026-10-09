@@ -1,0 +1,56 @@
+{
+  "id": "det-hoppar",
+  "title": "Det hoppar till",
+  "background": "Man, 60 år, som känner att hjärtat hoppar över slag. Inga kända hjärtsjukdomar.",
+  "baseline": {
+    "stripId": "normal-2",
+    "hr": 68,
+    "sbp": 135,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 110,
+      "stripId": "normal-1",
+      "hr": 84,
+      "sbp": 150,
+      "dbp": 80
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 200,
+      "stripId": "ves-enstaka-3",
+      "hr": 98,
+      "sbp": 160,
+      "dbp": 80,
+      "findingId": "ves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 300,
+      "stripId": "ves-trioler-3",
+      "hr": 112,
+      "sbp": 170,
+      "dbp": 85,
+      "symptom": "Det hoppar till i bröstet.",
+      "findingId": "ves-trioler"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 90,
+      "stripId": "ves-bigemini-1",
+      "hr": 96,
+      "sbp": 155,
+      "dbp": 80,
+      "findingId": "ves-bigemini"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

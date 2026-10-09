@@ -1,0 +1,57 @@
+{
+  "id": "hjartsvikt-efter-infarkt",
+  "title": "Svagt hjärta",
+  "background": "Man, 72 år, med hjärtsvikt efter en stor hjärtinfarkt. Arbetsprovet ska bedöma hans arbetsförmåga.",
+  "baseline": {
+    "stripId": "normal-3",
+    "hr": 72,
+    "sbp": 120,
+    "dbp": 75
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 80,
+      "stripId": "ves-enstaka-3",
+      "hr": 88,
+      "sbp": 130,
+      "dbp": 75,
+      "findingId": "ves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 150,
+      "stripId": "ves-bigemini-1",
+      "hr": 98,
+      "sbp": 135,
+      "dbp": 75,
+      "findingId": "ves-bigemini"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 250,
+      "stripId": "ves-multifokala-3",
+      "hr": 108,
+      "sbp": 130,
+      "dbp": 75,
+      "findingId": "ves-multifokala"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 300,
+      "stripId": "vt-ihallande-1",
+      "hr": 170,
+      "sbp": 95,
+      "dbp": 60,
+      "symptom": "Jag mår inte bra.",
+      "findingId": "vt-ihallande"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

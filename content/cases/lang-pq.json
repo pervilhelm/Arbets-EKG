@@ -1,0 +1,54 @@
+{
+  "id": "lang-pq",
+  "title": "Lång PQ-tid",
+  "background": "Man, 34 år, vältränad, med ett förlängt PQ-intervall på ett vilo-EKG. Arbetsprovet görs för att se hur överledningen påverkas av belastning.",
+  "baseline": {
+    "stripId": "normal-1",
+    "hr": 52,
+    "sbp": 120,
+    "dbp": 70
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 100,
+      "stripId": "av-block-1-1",
+      "hr": 70,
+      "sbp": 135,
+      "dbp": 70,
+      "findingId": "av-block-1"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 300,
+      "stripId": "normal-3",
+      "hr": 115,
+      "sbp": 160,
+      "dbp": 70
+    },
+    {
+      "phase": "belastning",
+      "watt": 150,
+      "timeSec": 560,
+      "stripId": "sinustakykardi-1",
+      "hr": 162,
+      "sbp": 190,
+      "dbp": 75,
+      "findingId": "puls-85-procent"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 120,
+      "stripId": "normal-1",
+      "hr": 100,
+      "sbp": 150,
+      "dbp": 70
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

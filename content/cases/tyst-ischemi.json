@@ -1,0 +1,55 @@
+{
+  "id": "tyst-ischemi",
+  "title": "Inga besvär",
+  "background": "Man, 63 år, med typ 2-diabetes. Utreds för nedsatt ork men har inga besvär från bröstet.",
+  "baseline": {
+    "stripId": "normal-3",
+    "hr": 76,
+    "sbp": 140,
+    "dbp": 85
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 110,
+      "stripId": "normal-1",
+      "hr": 90,
+      "sbp": 155,
+      "dbp": 85
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 300,
+      "stripId": "sinustakykardi-1",
+      "hr": 120,
+      "sbp": 175,
+      "dbp": 85,
+      "findingId": "sinustakykardi"
+    },
+    {
+      "phase": "belastning",
+      "watt": 150,
+      "timeSec": 520,
+      "stripId": "normal-4",
+      "hr": 142,
+      "sbp": 195,
+      "dbp": 90,
+      "findingId": "puls-85-procent"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 60,
+      "stripId": "st-sankning-1",
+      "hr": 118,
+      "sbp": 170,
+      "dbp": 85,
+      "findingId": "st-sankning"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

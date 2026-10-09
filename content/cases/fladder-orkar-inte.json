@@ -1,0 +1,56 @@
+{
+  "id": "fladder-orkar-inte",
+  "title": "Orkar inte mer",
+  "background": "Kvinna, 74 år, med KOL och nedsatt ork. Utreds för om hjärtat bidrar till besvären.",
+  "baseline": {
+    "stripId": "normal-3",
+    "hr": 80,
+    "sbp": 140,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 100,
+      "stripId": "normal-2",
+      "hr": 96,
+      "sbp": 150,
+      "dbp": 80
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 200,
+      "stripId": "formaksflimmer-fladder-1",
+      "hr": 138,
+      "sbp": 145,
+      "dbp": 85,
+      "findingId": "formaksflimmer-fladder"
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 230,
+      "stripId": "formaksflimmer-fladder-1",
+      "hr": 142,
+      "sbp": 130,
+      "dbp": 80,
+      "findingId": "bt-fall-utan-ischemi"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 260,
+      "stripId": "formaksflimmer-fladder-1",
+      "hr": 146,
+      "sbp": 125,
+      "dbp": 80,
+      "symptom": "Jag kan inte mer, snälla sluta.",
+      "findingId": "patient-vill-avbryta"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

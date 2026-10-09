@@ -1,0 +1,54 @@
+{
+  "id": "blodtrycket-stiger",
+  "title": "Blodtrycket stiger",
+  "background": "Kvinna, 52 år, med behandlat högt blodtryck. Arbetsprovet ska visa hur blodtrycket reagerar på belastning.",
+  "baseline": {
+    "stripId": "normal-1",
+    "hr": 78,
+    "sbp": 160,
+    "dbp": 95
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 100,
+      "stripId": "normal-4",
+      "hr": 92,
+      "sbp": 180,
+      "dbp": 95
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 300,
+      "stripId": "normal-3",
+      "hr": 118,
+      "sbp": 225,
+      "dbp": 105
+    },
+    {
+      "phase": "belastning",
+      "watt": 125,
+      "timeSec": 420,
+      "stripId": "normal-2",
+      "hr": 130,
+      "sbp": 255,
+      "dbp": 110,
+      "symptom": "Jag får lite huvudvärk.",
+      "findingId": "hypertensiv-reaktion"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 180,
+      "stripId": "normal-1",
+      "hr": 98,
+      "sbp": 200,
+      "dbp": 95
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}
