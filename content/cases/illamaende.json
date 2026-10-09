@@ -1,0 +1,46 @@
+{
+  "id": "illamaende",
+  "title": "Illamående",
+  "background": "Kvinna, 69 år, med aortastenos som bedömts som lindrig. Utreds för yrsel och trötthet vid ansträngning.",
+  "baseline": {
+    "stripId": "normal-2",
+    "hr": 76,
+    "sbp": 130,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 100,
+      "stripId": "normal-4",
+      "hr": 90,
+      "sbp": 140,
+      "dbp": 80
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 200,
+      "stripId": "ves-enstaka-3",
+      "hr": 104,
+      "sbp": 145,
+      "dbp": 80,
+      "findingId": "ves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 270,
+      "stripId": "normal-1",
+      "hr": 112,
+      "sbp": 140,
+      "dbp": 80,
+      "symptom": "Jag mår illa och fryser.",
+      "findingId": "dalig-perfusion"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

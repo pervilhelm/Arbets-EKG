@@ -1,0 +1,57 @@
+{
+  "id": "tilltagande-smarta",
+  "title": "Smärtan tilltar",
+  "background": "Kvinna, 64 år, med bröstsmärta vid ansträngning sedan några veckor. Utreds för misstänkt kärlkramp.",
+  "baseline": {
+    "stripId": "normal-4",
+    "hr": 74,
+    "sbp": 135,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 110,
+      "stripId": "normal-2",
+      "hr": 92,
+      "sbp": 150,
+      "dbp": 80
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 200,
+      "stripId": "normal-3",
+      "hr": 108,
+      "sbp": 165,
+      "dbp": 85,
+      "symptom": "Det känns lite tryck i bröstet, men det går.",
+      "findingId": "brostsmarta-okande"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 280,
+      "stripId": "st-sankning-1",
+      "hr": 124,
+      "sbp": 175,
+      "dbp": 85,
+      "findingId": "st-sankning"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 350,
+      "stripId": "st-sankning-1",
+      "hr": 130,
+      "sbp": 180,
+      "dbp": 85,
+      "symptom": "Nu gör det riktigt ont, det strålar ut i armen.",
+      "findingId": "angina-mattlig-svar"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

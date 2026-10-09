@@ -1,0 +1,56 @@
+{
+  "id": "snurrar",
+  "title": "Det snurrar",
+  "background": "Man, 70 år, med typ 2-diabetes och högt blodtryck. Utreds för andfåddhet vid trappgång.",
+  "baseline": {
+    "stripId": "normal-1",
+    "hr": 68,
+    "sbp": 145,
+    "dbp": 85
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 90,
+      "stripId": "normal-3",
+      "hr": 85,
+      "sbp": 160,
+      "dbp": 85
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 210,
+      "stripId": "sves-enstaka-3",
+      "hr": 98,
+      "sbp": 175,
+      "dbp": 90,
+      "findingId": "sves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 330,
+      "stripId": "ves-enstaka-3",
+      "hr": 110,
+      "sbp": 185,
+      "dbp": 90,
+      "findingId": "ves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 125,
+      "timeSec": 420,
+      "stripId": "normal-4",
+      "hr": 118,
+      "sbp": 150,
+      "dbp": 80,
+      "symptom": "Allt snurrar, jag tror att jag svimmar.",
+      "findingId": "cns-symtom"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

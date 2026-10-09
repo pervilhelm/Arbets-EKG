@@ -1,0 +1,56 @@
+{
+  "id": "vill-sluta",
+  "title": "Vill sluta",
+  "background": "Man, 81 år, med förmaksflimmer i anamnesen men sinusrytm i dag. Utreds för nedsatt ork.",
+  "baseline": {
+    "stripId": "normal-3",
+    "hr": 70,
+    "sbp": 150,
+    "dbp": 80
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 100,
+      "stripId": "sves-enstaka-3",
+      "hr": 86,
+      "sbp": 165,
+      "dbp": 80,
+      "findingId": "sves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 180,
+      "stripId": "normal-4",
+      "hr": 100,
+      "sbp": 175,
+      "dbp": 85
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 260,
+      "stripId": "ves-enstaka-3",
+      "hr": 112,
+      "sbp": 180,
+      "dbp": 85,
+      "findingId": "ves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 320,
+      "stripId": "normal-1",
+      "hr": 116,
+      "sbp": 180,
+      "dbp": 85,
+      "symptom": "Jag orkar inte mer, jag vill sluta nu.",
+      "findingId": "patient-vill-avbryta"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

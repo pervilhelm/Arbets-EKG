@@ -1,0 +1,55 @@
+{
+  "id": "hjartsvikt",
+  "title": "Trött och andfådd",
+  "background": "Kvinna, 61 år, med hjärtsvikt. Arbetsprovet ska bedöma hennes arbetsförmåga inför rehabilitering.",
+  "baseline": {
+    "stripId": "normal-2",
+    "hr": 84,
+    "sbp": 125,
+    "dbp": 75
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 110,
+      "stripId": "normal-4",
+      "hr": 100,
+      "sbp": 135,
+      "dbp": 75
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 220,
+      "stripId": "normal-1",
+      "hr": 112,
+      "sbp": 118,
+      "dbp": 70,
+      "findingId": "bt-fall-utan-ischemi"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 260,
+      "stripId": "sves-enstaka-3",
+      "hr": 120,
+      "sbp": 115,
+      "dbp": 70,
+      "symptom": "Jag får inte luft, och benen tar slut.",
+      "findingId": "trotthet-dyspne"
+    },
+    {
+      "phase": "aterhamtning",
+      "watt": 0,
+      "timeSec": 120,
+      "stripId": "normal-2",
+      "hr": 95,
+      "sbp": 120,
+      "dbp": 70
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}

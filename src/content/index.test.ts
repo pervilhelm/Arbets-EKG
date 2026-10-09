@@ -73,7 +73,7 @@ describe("bundled content", () => {
     const ecgFindings = findings.filter(
       (f) => ECG_CATEGORIES.includes(f.category) && (f.ecg?.stripIds.length ?? 0) > 0,
     );
-    expect(cases).toHaveLength(6);
+    expect(cases.length).toBeGreaterThanOrEqual(6);
     for (const f of ecgFindings) expect(covered, f.id).toContain(f.id);
     const bpOrSymptom = findings.filter(
       (f) => ["blodtryck", "symtom"].includes(f.category) && covered.has(f.id),

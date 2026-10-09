@@ -1,0 +1,46 @@
+{
+  "id": "blodtrycket-faller",
+  "title": "Blodtrycket faller",
+  "background": "Man, 66 år, med känd kranskärlssjukdom och tidigare ballongvidgning. Kontroll av arbetsförmåga efter ny medicinering.",
+  "baseline": {
+    "stripId": "normal-3",
+    "hr": 70,
+    "sbp": 140,
+    "dbp": 85
+  },
+  "steps": [
+    {
+      "phase": "belastning",
+      "watt": 50,
+      "timeSec": 100,
+      "stripId": "normal-1",
+      "hr": 88,
+      "sbp": 160,
+      "dbp": 85
+    },
+    {
+      "phase": "belastning",
+      "watt": 75,
+      "timeSec": 200,
+      "stripId": "ves-enstaka-3",
+      "hr": 104,
+      "sbp": 170,
+      "dbp": 85,
+      "findingId": "ves-enstaka"
+    },
+    {
+      "phase": "belastning",
+      "watt": 100,
+      "timeSec": 300,
+      "stripId": "st-sankning-1",
+      "hr": 118,
+      "sbp": 150,
+      "dbp": 80,
+      "symptom": "Det börjar trycka i bröstet.",
+      "findingId": "bt-fall-med-ischemi"
+    }
+  ],
+  "review": {
+    "status": "utkast"
+  }
+}
